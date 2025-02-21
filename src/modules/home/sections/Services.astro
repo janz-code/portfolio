@@ -1,0 +1,11 @@
+---
+interface Props{
+  lang: string
+}
+const {lang} = Astro.props
+const title = lang === "es" ? "Servicios" : "Services";
+---
+
+<div class="flex flex-col gap-y-5">
+  <h3 class="text-3xl font-medium font-serif">{title}</h3>
+</div>

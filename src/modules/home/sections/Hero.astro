@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import TitleHero from "../components/TitleHero.astro";
+import profile from "../assets/images/profile.png";
+---
+<div class="flex flex-col items-center justify-end gap-y-5 col-span-2 h-full">
+  <TitleHero title="Juan C. Zuniga" />
+  <div class="relative flex items-center justify-center w-[80%]">
+    <div
+      class="min-h-[80%] h-[80%] w-[90%] border-2 border-neutral-300 bg-white p-4 rounded-2xl absolute -bottom-[5%] z-0"
+    >
+      <div class="bg-neutral-300 rounded-2xl w-full min-h-full"></div>
+    </div>
+    <Image src={profile} alt="" class="z-20 w-[80%] h-[103%]" height={600} />
+  </div>
+</div>
