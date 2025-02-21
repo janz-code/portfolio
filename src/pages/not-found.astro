@@ -1,0 +1,8 @@
+---
+import PageLayout from "../core/layouts/PageLayout.astro";
+const locale = Astro.currentLocale;
+const lang = locale ? locale === 'es' ? "es" : "en" : "en";
+---
+<PageLayout lang={lang} title={lang === 'es' ? "Pagina No Encontrada" : "Page not found"}>
+
+</PageLayout>

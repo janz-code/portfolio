@@ -6,6 +6,7 @@ import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 
 import db from "@astrojs/db";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +24,6 @@ export default defineConfig({
   compressHTML: true,
   devToolbar: {enabled: false},
   output: "server",
-
   prefetch: {
       prefetchAll: true,
       defaultStrategy: "viewport"
@@ -33,13 +33,15 @@ export default defineConfig({
       checkOrigin: true,
   },
 
-  redirects:{
+  /*redirects:{
       '/blog': {
           status: 302,
           destination: ""
       }
+  },*/
+  vite: {
+      plugins: [tailwindcss()]
   },
-
   scopedStyleStrategy: "class",
   adapter: vercel(),
   integrations: [sitemap(), db()],

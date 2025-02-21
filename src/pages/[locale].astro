@@ -1,0 +1,12 @@
+---
+import PageLayout from "../core/layouts/PageLayout.astro";
+import Header from "../core/sections/Header.astro";
+const locale = Astro.currentLocale;
+if (!locale) {
+    return Astro.redirect("not-found");
+}
+---
+
+<PageLayout lang={locale} title="Juan Zuniga">
+    <Header lang={locale} path="home" />
+</PageLayout>

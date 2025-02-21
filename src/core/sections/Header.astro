@@ -1,0 +1,54 @@
+---
+import NavItem from "../components/NavItem.astro";
+import HomeIcon from "../icons/HomeIcon.astro";
+import PortfolioIcon from "../icons/PortfolioIcon.astro";
+import BlogIcon from "../icons/BlogIcon.astro";
+import ResumeIcon from "../icons/ResumeIcon.astro";
+import LanguageIcon from "../icons/LanguageIcon.astro";
+interface Props {
+  lang: string;
+  path: string;
+}
+const { lang, path } = Astro.props;
+---
+
+<header
+  class="font-light grid grid-cols-3 items-center w-[90%] justify-between"
+>
+  <nav class="flex gap-x-4 items-center">
+    <NavItem active={path === "home"} href={`/${lang}/`}>
+      <figure class="w-5 h-5">
+        <HomeIcon />
+      </figure>
+      <span>Home</span>
+    </NavItem>
+    <NavItem active={path === "resume"} href={`/${lang}/resume`}>
+      <figure class="w-5 h-5 text-gray-500">
+        <ResumeIcon />
+      </figure>
+      <span>Resume</span>
+    </NavItem>
+    <NavItem active={path === "projects"} href={`/${lang}/projects`}>
+      <figure class="w-5 h-5">
+        <PortfolioIcon />
+      </figure>
+      <span>Projects</span>
+    </NavItem>
+    <NavItem active={false} href="">
+      <figure class="w-5 h-5 text-gray-500">
+        <BlogIcon />
+      </figure>
+      <span>Blog</span>
+    </NavItem>
+  </nav>
+  <h1 class="text-3xl font-semibold font-serif text-center">
+    {lang === "es" ? "Portafolio" : "Portfolio"}
+  </h1>
+  <div class="flex gap-x-4 items-center">
+    <NavItem active={false} href="">
+      <figure class="w-6 h-6 text-gray-500">
+        <LanguageIcon />
+      </figure>
+    </NavItem>
+  </div>
+</header>
