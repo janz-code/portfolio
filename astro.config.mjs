@@ -5,7 +5,6 @@ import vercel from "@astrojs/vercel";
 
 import sitemap from "@astrojs/sitemap";
 
-import db from "@astrojs/db";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
@@ -44,5 +43,5 @@ export default defineConfig({
   },
   scopedStyleStrategy: "class",
   adapter: vercel(),
-  integrations: [sitemap(), db()],
+    integrations: [sitemap()],
 });

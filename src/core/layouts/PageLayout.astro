@@ -22,7 +22,9 @@ const { title, lang }: Props = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="bg-neutral-100 p-10 flex flex-col items-center font-poppins">
+    <body
+        class="bg-neutral-100 p-10 flex flex-col items-center font-poppins gap-y-24"
+    >
         <slot />
     </body>
 </html>

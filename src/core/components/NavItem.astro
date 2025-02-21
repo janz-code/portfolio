@@ -6,11 +6,8 @@ interface Props {
 const { href, active } = Astro.props;
 ---
 
-<div class={`w-fit h-fit hover:bg-white rounded-xl ${active && 'bg-white'}`}>
-  <a
-    class="cursor-pointer px-4 py-1.5 text-sm flex gap-2 items-center"
-    href={href}
-  >
+<div class={`w-fit h-fit hover:bg-white rounded-xl ${active && "bg-white"}`}>
+  <a class="cursor-pointer px-4 py-1.5 flex gap-2 items-center" href={href}>
     <slot />
   </a>
 </div>
