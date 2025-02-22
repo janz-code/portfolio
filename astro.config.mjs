@@ -7,6 +7,8 @@ import sitemap from "@astrojs/sitemap";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -43,5 +45,5 @@ export default defineConfig({
   },
   scopedStyleStrategy: "class",
   adapter: vercel(),
-    integrations: [sitemap()],
+    integrations: [sitemap(), mdx()],
 });

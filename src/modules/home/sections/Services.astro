@@ -1,11 +1,32 @@
 ---
-interface Props{
-  lang: string
+import { render } from "astro:content";
+import ServerIcon from "../assets/icons/ServerIcon.astro";
+import ServicesElement from "../components/ServicesElement.astro";
+import { getCollection } from "astro:content";
+interface Props {
+  lang: string;
 }
-const {lang} = Astro.props
+const { lang } = Astro.props;
 const title = lang === "es" ? "Servicios" : "Services";
+const data = await getCollection("services");
+const items = await (async () => {
+  const items = [];
+  for await (const item of data) {
+    if (!item.id.includes(lang)) continue;
+    const { Content } = await render(item);
+    items.push({ ...item.data, Content });
+  }
+  return items;
+})();
 ---
 
-<div class="flex flex-col gap-y-5">
-  <h3 class="text-3xl font-medium font-serif">{title}</h3>
+<div class="flex flex-col gap-y-10 justify-end">
+  <h3 class="text-2xl font-medium font-serif">{title}</h3>
+  {
+    items.map((item) => (
+      <ServicesElement title={item.title} description={item.description}>
+        <item.Content />
+      </ServicesElement>
+    ))
+  }
 </div>

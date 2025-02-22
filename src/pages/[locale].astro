@@ -3,6 +3,7 @@ import PageLayout from "../core/layouts/PageLayout.astro";
 import Header from "../core/sections/Header.astro";
 import Services from "../modules/home/sections/Services.astro";
 import Hero from "../modules/home/sections/Hero.astro";
+import Resume from "../modules/home/sections/Resume.astro";
 const locale = Astro.currentLocale;
 if (!locale) {
     return Astro.redirect("not-found");
@@ -12,10 +13,10 @@ if (!locale) {
 <PageLayout lang={locale} title="Juan Zuniga">
     <Header lang={locale} path="home" />
     <main class="flex flex-col w-[90%] h-full justify-center">
-        <section class="grid grid-cols-4 gap-x-2 w-full">
+        <section class="grid grid-cols-4 gap-x-2 w-full justify-baseline">
             <Services lang={locale} />
             <Hero />
-            <div class=""></div>
+            <Resume lang={locale} />
         </section>
     </main>
 </PageLayout>
