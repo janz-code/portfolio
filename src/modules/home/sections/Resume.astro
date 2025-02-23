@@ -1,8 +1,12 @@
 ---
 import GitHubActivity from "../components/resume/GitHubActivity.astro";
+import WPM from "../components/resume/WPM.astro";
+interface Props{
+    lang: string
+}
+const {lang} = Astro.props;
 ---
-<section class="flex flex-wrap items-center justify-evenly gap-4 py-5">
-    <div class="w-fit">
-        <GitHubActivity/>
-    </div>
+<section class="grid grid-cols-12 gap-5">
+    <GitHubActivity lang={lang}/>
+    <WPM lang={lang}/>
 </section>

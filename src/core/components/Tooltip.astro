@@ -1,0 +1,13 @@
+---
+interface Props{
+    text: string,
+}
+const {text} = Astro.props;
+---
+<div class="flex items-center gap-x-2 group relative">
+    <slot/>
+    <div class="group-hover:flex hidden absolute -top-10 z-10 border-[1px] bg-white border-neutral-200 px-5 py-1
+     rounded-lg w-fit select-none cursor-default">
+        <span class="font-serif text-sm select-none font-light">{text}</span>
+    </div>
+</div>

@@ -7,7 +7,7 @@ export default function GithubActivityCalendar(){
             colorScheme="light"
             blockRadius={5}
             blockSize={14}
-            fontSize={18}
+            fontSize={14}
             hideMonthLabels={true}
         />
     )
