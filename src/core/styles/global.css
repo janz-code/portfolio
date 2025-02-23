@@ -13,3 +13,10 @@ body {
     width: 100dvw;
     height: 100dvh;
 }
+
+.scrollbar{
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.623 0.214 259.815) transparent;
+}

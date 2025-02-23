@@ -1,7 +1,6 @@
 ---
 import PageLayout from "../core/layouts/PageLayout.astro";
 import Hero from "../modules/home/sections/Hero.astro";
-import PageContainer from "../core/layouts/PageContainer.astro";
 import Resume from "../modules/home/sections/Resume.astro";
 const locale = Astro.currentLocale;
 if (!locale) {
@@ -9,9 +8,7 @@ if (!locale) {
 }
 ---
 
-<PageLayout lang={locale} title="Juan Zuniga">
-    <PageContainer>
-        <Hero lang={locale} />
-        <Resume />
-    </PageContainer>
+<PageLayout lang={locale} title="Juan Zuniga" path="home">
+    <Hero lang={locale} />
+    <Resume />
 </PageLayout>

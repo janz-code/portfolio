@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from 'astro:transitions';
+import Header from "../sections/Header.astro";
 interface Props {
     title: string;
+    path: string;
     lang: string;
 }
-const { title, lang }: Props = Astro.props;
+const { title, lang, path }: Props = Astro.props;
 ---
 
 <!doctype html>
@@ -25,7 +27,30 @@ const { title, lang }: Props = Astro.props;
         <title>{title}</title>
         <ClientRouter/>
     </head>
-    <body class="bg-neutral-100 p-3 overflow-hidden">
-        <slot/>
+    <body class="bg-neutral-100 w-dvw h-dvh overflow-hidden">
+        <div id="container"
+             class="flex flex-col items-center h-full overflow-y-auto scrollbar">
+            <Header lang={lang} path={path}/>
+            <main class="flex flex-col w-[80%] min-h-full h-fit py-10 relative">
+                <slot/>
+            </main>
+        </div>
     </body>
 </html>
+<script>
+    const container = document.getElementById("container");
+    if(container){
+        const header = document.getElementById("header");
+        container.addEventListener("scroll", () => {
+            const scroll = container.scrollTop;
+            if(!header) return;
+            if(scroll > 60){
+                if(header.classList.contains("border-b-[1px]")) return;
+                header.classList.add("border-b-[1px]");
+            }else{
+                if(!header.classList.contains("border-b-[1px]")) return;
+                header.classList.remove("border-b-[1px]");
+            }
+        })
+    }
+</script>
