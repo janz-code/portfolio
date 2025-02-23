@@ -1,0 +1,30 @@
+---
+interface Props{
+    lang: string
+}
+const {lang} = Astro.props;
+const locale = lang === 'en' ? 'en-US' : 'es-MX';
+const getHour = () => {
+    const date = new Date();
+    const formatted = new Intl.DateTimeFormat(locale, {
+        timeZone: "America/Bogota",
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+    })
+    return formatted.format(date);
+}
+const based = lang === 'es' ? "Actualmente en colombia" : 'Based in Colombia'
+const current = lang === "es" ? "Hora local" : "Local Time"
+---
+<footer class="py-2 flex items-center justify-between border-t-[1px] border-neutral-300 mt-10">
+    <div/>
+    <div class="flex items-center justify-around text-base font-serif font-light gap-x-4">
+        <p>{based}</p>
+        <p class="capitalize">
+            <span>{current}</span>
+            <span>{getHour()}</span>
+        </p>
+    </div>
+    <div></div>
+</footer>

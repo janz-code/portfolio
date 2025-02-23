@@ -1,0 +1,37 @@
+---
+import ResumeContainer from "../../layout/ResumeContainer.astro";
+import Games from "../../assets/icons/Games.astro";
+
+interface Props{
+    lang: string,
+}
+const {lang} = Astro.props;
+const hobbiesEn: string[] = [
+    "Reading",
+    "Programming",
+    "Calisthenics",
+    "Basketball",
+    "VideoGames",
+    "Anime"
+];
+const hobbiesEs: string[] = [
+    "Lectura",
+    "Programación",
+    "Calistenia",
+    "Basketball",
+    "Video Juegos",
+    "Anime"
+];
+const hobbies = lang === "es" ? hobbiesEs : hobbiesEn;
+---
+<ResumeContainer className="col-span-2">
+    <figure class="w-6 h-6 text-gray-600">
+        <Games/>
+    </figure>
+    <span class="font-light text-sm">Hobbies</span>
+    <ul class="w-full list-decimal pl-4 font-light justify-self-end text-base" slot="content">
+        {hobbies.map(item => (
+            <li class="capitalize">{item}.</li>
+        ))}
+    </ul>
+</ResumeContainer>
