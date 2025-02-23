@@ -5,10 +5,11 @@
 @theme {
     --font-poppins: Poppins, sans-serif;
     --font-serif: "Noto Serif", serif;
+    --font-mono: "VT323", serif;
 }
 
 body {
     scroll-behavior: smooth;
     width: 100dvw;
-    height: fit-content;
+    height: 100dvh;
 }

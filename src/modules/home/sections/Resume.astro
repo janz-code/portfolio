@@ -1,44 +1,8 @@
 ---
-import { render } from "astro:content";
-import { getEntry } from "astro:content";
-import ResumeItem from "../components/ResumeItem.astro";
-interface Props {
-  lang: string;
-}
-const { lang } = Astro.props;
-const data = await getEntry("homeResume", lang);
-if (!data) {
-  return Astro.redirect("not-found");
-}
-const { Content } = await render(data);
-const hireMe = lang === "es" ? "Contrátame" : "Hire Me";
-const experienceYears = 4;
-const clients = 10;
-const projects = 15;
+import GitHubActivity from "../components/resume/GitHubActivity.astro";
 ---
-
-<div class="flex flex-col gap-y-10 items-end justify-end">
-  <section class="flex flex-col gap-y-3">
-    <h3 class="text-2xl font-medium font-serif">{data.data.title}</h3>
-    <div class="text-sm font-extralight text-gray-600">
-      <Content />
+<section class="flex flex-wrap items-center justify-evenly gap-4 py-5">
+    <div class="w-fit">
+        <GitHubActivity/>
     </div>
-  </section>
-  <a
-    href="#contact"
-    class="text-sm font-medium px-5 py-2.5 rounded-lg bg-blue-500 hover:bg-blue-700 text-white self-start"
-  >
-    {hireMe}
-  </a>
-  <div class="grid grid-cols-3 gap-x-1 w-full items-center">
-    <ResumeItem 
-      value={`+${experienceYears} ${lang === "es" ? "Años" : "Years"}`} 
-      description={lang==="es" ? "Experiencia" : "Experience"} />
-    <ResumeItem
-      value={`+${clients}`}
-      description={lang === "es" ? "Clientes" : "Clients"} />
-    <ResumeItem
-      value={`+${projects}`}
-      description={lang === "es" ? "Proyectos" : "Projects"} />
-  </div>
-</div>
+</section>

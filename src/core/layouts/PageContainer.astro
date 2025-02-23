@@ -1,0 +1,61 @@
+---
+import CloseIcon from "../icons/CloseIcon.astro";
+import LineIcon from "../icons/LineIcon.astro";
+import WindowIcon from "../icons/WindowIcon.astro";
+import {Image} from "astro:assets";
+import largeDark from "../assets/logo/largeDark.svg"
+import dark from "../assets/logo/dark.svg"
+const profile = largeDark;
+const logo = dark;
+---
+<div class="window border-[1px] border-neutral-300 flex flex-col">
+    <div class="w-full min-h-[49px] h-[50px] grid grid-cols-4 px-5 border-b-[1px] border-neutral-300">
+        <div class="w-fit bg-transparent">
+            <slot name="nav"/>
+        </div>
+        <div class="flex items-center font-mono text-3xl font-light col-span-2 justify-center bg-transparent">
+            <Image src={profile} alt="Juan Zuniga Logo" width={89}/>
+        </div>
+        <div class="flex items-center justify-end">
+            <div class="w-fit flex items-center gap-2">
+                <figure class="text-amber-601 w-7 h-fit">
+                    <LineIcon />
+                </figure>
+                <figure class="text-blue-601 w-5 h-5">
+                    <WindowIcon />
+                </figure>
+                <figure class="text-red-601 w-7 h-7">
+                    <CloseIcon />
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="flex scrollbar">
+        <div class="w-[50px]">
+
+        </div>
+        <main class="w-full h-full relative px-5 z-0 ">
+            <slot/>
+        </main>
+        <div class="w-[50px]">
+
+        </div>
+    </div>
+    <div class="w-full min-h-[40px] h-[40px] flex items-center justify-center border-t-[1px] border-neutral-300">
+    </div>
+</div>
+<style>
+    .window {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background: transparent;
+    }
+    .scrollbar{
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: oklch(0.623 0.214 259.815) transparent;
+    }
+</style>
