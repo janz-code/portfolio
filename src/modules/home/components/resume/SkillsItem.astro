@@ -1,0 +1,50 @@
+---
+import type ISkills from "../../data/Skills";
+import Star from "../../assets/icons/Star.astro";
+interface Props{
+    lang: string
+    item: ISkills[]
+    title: string
+    className?: string
+}
+const {lang, item, title, className} = Astro.props;
+const preferred = lang === "es" ? "Preferencia" : "Preferred"
+const proficient = lang === "es" ? "Competente" : "Proficient"
+const beginner = lang === "es" ? "Principiante" : "Beginner"
+const learning = lang === "es" ? "Aprendiendo" : "Learning"
+---
+<div class="rounded-2xl group border-[1px] bg-white border-neutral-200 w-full h-full overflow-hidden">
+    <div class={`${className} h-3 w-full`}/>
+    <div class="w-full h-full p-4 relative flex flex-col gap-y-5">
+        <div class="flex items-center justify-between">
+            <h4 class="text-4xl font-mono font-light">{title}</h4>
+            <div class={`p-2 rounded-full text-white flex group-hover:scale-125 items-center justify-center 
+                ${className} transition-transform duration-300`}>
+                <figure class="w-7 h-7 group-hover:rotate-45 transition-transform duration-300">
+                    <slot/>
+                </figure>
+            </div>
+        </div>
+        <ul class="flex flex-col items-center gap-y-1 list-none w-full h-fit">
+            {item.map((item: ISkills) => (
+                <li class="w-full flex items-center justify-between">
+                    <div class="flex items-center gap-x-1.5">
+                        <span class="capitalize">{item.name}</span>
+                        {item.level > 8 && (
+                            <figure class="w-5 h-5 text-yellow-500">
+                                <Star/>
+                            </figure>
+                        )}
+                    </div>
+                    <span class={`italic font-serif text-sm 
+                        ${item.level > 8 ? "text-yellow-500" : item.level > 6 ? "text-emerald-500" : 
+                            item.level > 4 ? "text-blue-500" : item.level > 2 ? "text-indigo-500" : 
+                            "text-gray-500"}`}>
+                        {item.level > 8 ? preferred : item.level > 6 ? proficient :
+                            item.level > 4 ? "Familiar" : item.level > 2 ? beginner : learning}
+                    </span>
+                </li>
+            ))}
+        </ul>
+    </div>
+</div>
