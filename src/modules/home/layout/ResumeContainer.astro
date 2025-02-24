@@ -1,0 +1,14 @@
+---
+interface Props{
+    className?: string
+}
+const {className} = Astro.props;
+---
+<div class={`p-4 border-2 bg-white border-neutral-200/50 rounded-2xl flex flex-col gap-y-4 w-full ${className}
+    items-center font-serif relative`}>
+    <div class="flex items-center self-start bg-neutral-50 gap-x-2 px-4 py-1.5 rounded-2xl border-[1px]
+        border-neutral-100 w-fit">
+        <slot/>
+    </div>
+    <slot name="content"/>
+</div>

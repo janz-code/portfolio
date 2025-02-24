@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { ClientRouter } from 'astro:transitions';
 import Header from "../sections/Header.astro";
+import Footer from "../sections/Footer.astro";
 interface Props {
     title: string;
     path: string;
@@ -31,8 +32,9 @@ const { title, lang, path }: Props = Astro.props;
         <div id="container"
              class="flex flex-col items-center h-full overflow-y-auto scrollbar">
             <Header lang={lang} path={path}/>
-            <main class="flex flex-col w-[80%] min-h-full h-fit py-10 relative">
+            <main class="flex flex-col w-[80%] min-h-full h-fit relative">
                 <slot/>
+                <Footer lang={lang}/>
             </main>
         </div>
     </body>
