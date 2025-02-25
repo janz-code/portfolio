@@ -1,3 +1,12 @@
 ---
-
+import {getCollection} from "astro:content";
+interface Props{
+    lang:string
+}
+const {lang} = Astro.props;
+const collection = await getCollection("projects");
+console.log(collection);
 ---
+<section class="w-full flex flex-col gap-y-14">
+
+</section>
