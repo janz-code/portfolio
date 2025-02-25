@@ -16,5 +16,19 @@ const homeResume = defineCollection({
   }),
 });
 
+const projects = defineCollection({
+  loader: glob({ pattern: `**/*.md`, base: "./src/modules/home/content/projects" }),
+  schema: z.object({
+    name: z.string(),
+    category: z.string(),
+    type: z.string(),
+    skills: z.array(z.string()),
+    repo: z.string(),
+    cover: z.string(),
+    live: z.string(),
+    qualification: z.number(),
+  })
+})
 
-export const collections = { services, homeResume };
+
+export const collections = { services, homeResume, projects };
