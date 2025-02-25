@@ -1,15 +1,18 @@
 ---
-import GithubActivityCalendar from "./GithubActivityCalendar"
+import GithubActivityCalendar from "./GithubActivityCalendar";
 import GithubIcon from "../../../../core/icons/GithubIcon.astro";
 import ResumeContainer from "../../layout/ResumeContainer.astro";
-interface Props{lang: string}
-const {lang} = Astro.props;
-const title = lang === "es" ? "Actividad de github" : "Github Activity"
+interface Props {
+    lang: string;
+}
+const { lang } = Astro.props;
+const title = lang === "es" ? "Actividad de github" : "Github Activity";
 ---
-<ResumeContainer className="col-span-8">
+
+<ResumeContainer className="col-span-12">
     <figure class="w-6 h-6">
-        <GithubIcon/>
+        <GithubIcon />
     </figure>
-    <span class="font-light font-mono">{title}</span>
-    <GithubActivityCalendar client:only slot="content"/>
+    <span class="font-light font-serif">{title}</span>
+    <GithubActivityCalendar client:only slot="content" />
 </ResumeContainer>

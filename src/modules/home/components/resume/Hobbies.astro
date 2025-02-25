@@ -2,17 +2,17 @@
 import ResumeContainer from "../../layout/ResumeContainer.astro";
 import Games from "../../assets/icons/Games.astro";
 
-interface Props{
-    lang: string,
+interface Props {
+    lang: string;
 }
-const {lang} = Astro.props;
+const { lang } = Astro.props;
 const hobbiesEn: string[] = [
     "Reading",
     "Programming",
     "Calisthenics",
     "Basketball",
     "VideoGames",
-    "Anime"
+    "Anime",
 ];
 const hobbiesEs: string[] = [
     "Lectura",
@@ -20,18 +20,24 @@ const hobbiesEs: string[] = [
     "Calistenia",
     "Basketball",
     "Video Juegos",
-    "Anime"
+    "Anime",
 ];
 const hobbies = lang === "es" ? hobbiesEs : hobbiesEn;
 ---
-<ResumeContainer className="col-span-2">
+
+<ResumeContainer className="col-span-3">
     <figure class="w-6 h-6 text-gray-600">
-        <Games/>
+        <Games />
     </figure>
     <span class="font-light text-sm">Hobbies</span>
-    <ul class="w-full list-decimal pl-4 font-light justify-self-end text-base" slot="content">
-        {hobbies.map(item => (
-            <li class="capitalize font-extralight">{item}.</li>
-        ))}
+    <ul
+        class="w-full list-decimal pl-4 font-light justify-self-end text-base"
+        slot="content"
+    >
+        {
+            hobbies.map((item) => (
+                <li class="capitalize font-extralight">{item}.</li>
+            ))
+        }
     </ul>
 </ResumeContainer>

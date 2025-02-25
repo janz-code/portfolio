@@ -5,10 +5,11 @@ export default function GithubActivityCalendar(){
         <GitHubCalendar
             username="JuanZuniga79"
             colorScheme="light"
-            blockRadius={5}
-            blockSize={14}
-            fontSize={14}
+            blockRadius={6}
+            blockSize={16}
+            fontSize={16}
             hideMonthLabels={true}
+            weekStart={1}
         />
     )
 }

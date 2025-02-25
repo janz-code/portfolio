@@ -1,24 +1,28 @@
 ---
 import ResumeContainer from "../../layout/ResumeContainer.astro";
 import Keyboard from "../../assets/icons/Keyboard.astro";
-import Clock from "../../assets/icons/Clock.astro"
+import Clock from "../../assets/icons/Clock.astro";
 import Tooltip from "../../../../core/components/Tooltip.astro";
 import Focus from "../../assets/icons/Focus.astro";
 import LanguageIcon from "../../../../core/icons/LanguageIcon.astro";
-interface Props{
-    lang: string,
+interface Props {
+    lang: string;
 }
-const {lang} = Astro.props;
+const { lang } = Astro.props;
 const title = lang === "es" ? "Velocidad de escritura" : "Typing Speed";
 const wpm = 64;
 const text = lang === "es" ? "PPM" : "WPM";
 ---
-<ResumeContainer className="col-span-2">
+
+<ResumeContainer className="col-span-3">
     <figure class="w-6 h-6">
-        <Keyboard/>
+        <Keyboard />
     </figure>
     <span class="font-light">{title}</span>
-    <div slot="content" class="w-full h-full flex flex-col mt-8 font-light gap-y-5">
+    <div
+        slot="content"
+        class="w-full h-full flex flex-col mt-8 font-light gap-y-5"
+    >
         <p class="text-6xl">
             <span>{wpm}</span>
             <span class="text-xl font-extralight">{text}</span>
@@ -33,14 +37,14 @@ const text = lang === "es" ? "PPM" : "WPM";
             <Tooltip text="Accuracy">
                 <figure class="w-6 h-6 text-gray-400">
                     <figure class="w-6 h-6 text-gray-400">
-                        <Focus/>
+                        <Focus />
                     </figure>
                 </figure>
                 <span class="text-sm">91%</span>
             </Tooltip>
             <Tooltip text="Language">
                 <figure class="w-6 h-6 text-gray-400">
-                    <LanguageIcon/>
+                    <LanguageIcon />
                 </figure>
                 <span class="text-sm">en-US</span>
             </Tooltip>

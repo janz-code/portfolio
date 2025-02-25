@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 import Header from "../sections/Header.astro";
 import Footer from "../sections/Footer.astro";
 interface Props {
@@ -23,36 +23,50 @@ const { title, lang, path }: Props = Astro.props;
             href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet"
         />
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+            rel="stylesheet"
+        />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
-        <ClientRouter/>
+        <ClientRouter />
     </head>
     <body class="bg-neutral-100 w-dvw h-dvh overflow-hidden">
-        <div id="container"
-             class="flex flex-col items-center h-full overflow-y-auto scrollbar">
-            <Header lang={lang} path={path}/>
-            <main class="flex flex-col w-[80%] min-h-full h-fit relative">
-                <slot/>
-                <Footer lang={lang}/>
+        <div
+            id="container"
+            class="flex flex-col items-center h-full overflow-y-auto scrollbar"
+        >
+            <Header lang={lang} path={path} />
+            <main
+                class="flex flex-col w-[70%] min-h-full h-fit relative gap-y-20"
+            >
+                <slot />
+                <Footer lang={lang} />
             </main>
         </div>
     </body>
 </html>
 <script>
     const container = document.getElementById("container");
-    if(container){
+    document.addEventListener("astro:page-load", () => {
+        if (!container) return;
+        const height = localStorage.getItem("scrollHeight");
+        if (!height) return;
+        container.scrollTo({ behavior: "smooth", top: parseInt(height) });
+    });
+    if (container) {
         const header = document.getElementById("header");
         container.addEventListener("scroll", () => {
             const scroll = container.scrollTop;
-            if(!header) return;
-            if(scroll > 60){
-                if(header.classList.contains("border-b-[1px]")) return;
+            localStorage.setItem("scrollHeight", scroll.toString());
+            if (!header) return;
+            if (scroll > 60) {
+                if (header.classList.contains("border-b-[1px]")) return;
                 header.classList.add("border-b-[1px]");
-            }else{
-                if(!header.classList.contains("border-b-[1px]")) return;
+            } else {
+                if (!header.classList.contains("border-b-[1px]")) return;
                 header.classList.remove("border-b-[1px]");
             }
-        })
+        });
     }
 </script>
