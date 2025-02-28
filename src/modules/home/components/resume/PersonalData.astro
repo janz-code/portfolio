@@ -1,0 +1,21 @@
+---
+import Location from '../../assets/icons/Location.astro';
+import PersonalDataItem from './PersonalDataItem.astro';
+
+interface Props{
+  lang: string
+}
+const {lang} = Astro.props;
+const item1 = lang === "es" ? "Ubicación" : "Location";
+const item2 = lang === "es" ? "Profesión" : "Profession";
+const item3 = lang === "es" ? "Disponibilidad" : "Availability";
+const item4 = lang === "es" ? "Redes Sociales" : "Social Media";
+---
+<div class="grid grid-cols-4 gap-5 w-full col-span-12 h-fit">
+  <PersonalDataItem title={item1} className="bg-blue-600" >
+    <span>Santa Marta - Colombia</span>
+    <figure slot="icon" class="w-6 h-6 text-white">
+      <Location/>
+    </figure>
+  </PersonalDataItem>
+</div>
