@@ -1,0 +1,22 @@
+---
+import PersonalData from "../components/resume/PersonalData.astro";
+import WPM from "../components/resume/WPM.astro";
+
+const lang = Astro.currentLocale;
+if(!lang) return;
+const about = lang ? "Acerca de mi" : "About me";
+---
+<section class="grid grid-cols-4 gap-5">
+  <div class="w-full flex flex-col gap-5 pt-16">
+    <WPM lang={lang}/>
+  </div>
+  <div class="w-full col-span-3 flex flex-col gap-5">
+    <h3 class="capitalize text-5xl font-semibold font-poppins">{about}</h3>
+    <div class="flex flex-col gap-2">
+      <div></div>
+    </div>
+  </div>
+  <div class="col-span-4">
+    <PersonalData lang={lang}/>
+  </div>
+</section>
