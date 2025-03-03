@@ -18,7 +18,7 @@ const item3Text = lang === "es" ? "Tiempo completo" : "Full-time";
 const item4 = lang === "es" ? "Redes Sociales" : "Social Media";
 ---
 
-<div class="grid grid-cols-4 gap-5 w-full col-span-12 h-fit">
+<div class="grid grid-cols-5 gap-8 w-full col-span-5 h-fit">
   <PersonalDataItem title={item1} className="bg-blue-600 min-w-9 h-9">
     <span>Santa Marta - Colombia</span>
     <figure slot="icon" class="w-6 h-6 text-white">
@@ -30,6 +30,9 @@ const item4 = lang === "es" ? "Redes Sociales" : "Social Media";
     <figure slot="icon" class="w-7 h-7 text-white">
       <Work />
     </figure>
+  </PersonalDataItem>
+  <PersonalDataItem className="" title="">
+
   </PersonalDataItem>
   <PersonalDataItem title={item3} className="">
     <span>{item3Text}</span>
