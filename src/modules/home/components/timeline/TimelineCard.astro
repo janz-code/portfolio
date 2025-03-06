@@ -1,0 +1,17 @@
+---
+import type ITimeline from "../../types/ITimeline";
+interface Props{
+    data: ITimeline;
+    index: number;
+}
+const {data, index} = Astro.props;
+---
+<div class={`w-[calc(50%+20px)] flex items-center relative py-2 z-10 bg-inherit container
+    ${index%2===0 ? 'place-self-end' : "flex-row-reverse"}`}>
+    <figure class="min-w-[40px] h-[40px] bg-white border-[1px] border-neutral-300 rounded-full flex
+        items-center justify-center"/>
+    <figure class="w-16 h-[3px] bg-neutral-300" />
+    <div class="w-full border-[1.5px] border-neutral-300 py-2 rounded-md bg-white shadow-md shadow-neutral-300">
+
+    </div>
+</div>
