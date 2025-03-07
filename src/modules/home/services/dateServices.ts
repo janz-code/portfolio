@@ -15,7 +15,8 @@ export const getDate = (date: string) => {
   return new Date(year, month - 1, day);
 }
 
-export const getDateDiference = (start: Date, end: Date) => {
+export const getDateDiference = (lang: string, start: Date, end?: Date) => {
+  if (!end) return lang === "es" ? `${start.getFullYear()} - Presente` : `${start.getFullYear()} - Present`
   let years = end.getFullYear() - start.getFullYear();
   let months = end.getMonth() - start.getMonth();
 
@@ -24,5 +25,8 @@ export const getDateDiference = (start: Date, end: Date) => {
     months += 12;
   }
 
-  return { years, months };
+  const yearsText = lang === "es" ? "años" : "years"
+  const monthsText = lang === "es" ? "meses" : "months"
+
+  return `${years > 0 ? `${years} ${yearsText}` : ''} ${months > 0 ? `${months} ${monthsText}` : ''}`
 }

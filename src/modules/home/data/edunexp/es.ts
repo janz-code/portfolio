@@ -21,7 +21,7 @@ const esENE: ITimeline[] = [
   },
   {
     type: "experience", title: "Desarrollador web semi senior", company: "IGD SAS",
-    start: getDate('01-03-2024'), end: getDate('05-03-2024'),
+    start: getDate('01-03-2024'), end: getDate('05-03-2025'),
     description: "Mi contrato fue renovado con el propósito de continuar el desarrollo del proyecto principal de la empresa. Sin embargo, actualmente me encuentro en transición hacia nuevas oportunidades laborales, con el objetivo de enfrentar desafíos que me permitan seguir creciendo profesionalmente.",
     achievements: ["próximamente"],
     technologies: ["próximamente"]

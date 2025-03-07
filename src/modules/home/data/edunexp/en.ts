@@ -11,7 +11,7 @@ const enENE: ITimeline[] = [
   },
   {
     type: "experience", title: "Junior web developer", company: "IGD SAS",
-    start: getDate('01-01-2021'), end: getDate('28-02-2024'),
+    start: getDate('01-01-2021'), end: getDate('1-03-2024'),
     description: "I worked as a lead developer on the company's largest frontend project, where I achieved numerous accomplishments thanks to my efficiency in problem solving.",
     achievements: [
       "I single-handedly migrated the project architecture, upgrading React 16 to Vite with React 18 and replacing pure CSS with Tailwind CSS, as well as implementing various optimizations in the software.",
@@ -21,7 +21,7 @@ const enENE: ITimeline[] = [
   },
   {
     type: "experience", title: "Semi Senior Web Developer", company: "IGD SAS",
-    start: getDate('01-03-2024'), end: getDate('05-03-2024'),
+    start: getDate('01-03-2024'), end: getDate('05-03-2025'),
     description: "My contract was renewed with the purpose of continuing the development of the company's main project. However, I am currently in transition towards new job opportunities, with the aim of facing challenges that allow me to continue growing professionally.",
     achievements: ["coming soon"],
     technologies: ["coming soon"]
