@@ -1,0 +1,15 @@
+---
+import PageLayout from "../../core/layouts/PageLayout.astro";
+
+const lang = Astro.currentLocale;
+if(!lang) return;
+const title = lang === "es" ? "Proyectos" : "Projects"
+---
+<PageLayout lang={lang} path="projects" title="Projects">
+  <section class="w-full h-fit flex flex-col gap-y-5">
+    <div class="">
+      <h2 class="text-5xl font-semibold font-serif">{title}</h2>
+    </div>
+    <div class="w-full h-[1px] bg-neutral-300"/>
+  </section>
+</PageLayout>
