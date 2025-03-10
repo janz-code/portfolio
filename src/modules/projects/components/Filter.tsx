@@ -58,7 +58,7 @@ export default function Filter({items,placeholder, id, onChange}: Props){
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0">
-                <Command>
+                <Command style={{backgroundColor: "white"}}>
                     <CommandInput placeholder={`select ${placeholder}`} />
                     <CommandList>
                         <CommandEmpty>{`No ${placeholder} found`}</CommandEmpty>
