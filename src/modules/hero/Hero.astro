@@ -1,32 +1,36 @@
 ---
-import Services from "../home/components/hero/Services.astro";
-import Resume from "../home/components/hero/Resume.astro";
-import TitleHero from "../home/components/hero/TitleHero.astro";
-import profile from "../home/assets/images/profile.png";
-import { Image } from "astro:assets";
+import {Image} from "astro:assets"
+import starSvg from "../../core/assets/icons/system/star.svg";
+import {fetchCollection} from "../../core/services/content_services";
+import type IPersonCollection from "./types/IPersonCollection";
+import type IHSystemCollection from "./types/IHSystemCollection";
+
 const lang = Astro.currentLocale;
 if (!lang) return;
+const person = await fetchCollection<IPersonCollection>("heroPerson", lang);
+if(!person) return;
+const system = await fetchCollection<IHSystemCollection>("heroSystem", lang);
+if(!system) return;
 ---
-
-<section id="hero" class="grid grid-cols-4 gap-x-2 py-10 w-full min-h-full h-full">
-    <Services lang={lang} />
-    <div
-        class="flex flex-col items-center justify-start gap-y-6 col-span-2 h-full"
-    >
-        <TitleHero title="Juan C. Zuniga" />
-        <div class="relative flex items-center justify-center w-[100%]">
-            <div
-                class="min-h-[80%] h-[80%] w-[80%] border-2 border-neutral-300 bg-white p-4 rounded-2xl
-                absolute bottom-0 z-0"
-            >
-                <div class="bg-neutral-200 rounded-2xl w-full min-h-full"></div>
-            </div>
-            <Image
-                src={profile}
-                alt=""
-                class="z-[1] h-full pb-[20px] lg:w-[300px] xl:w-[450px] 2xl:w-[600px] -ml-1 select-none object-contain"
-            />
+<section id="hero" class="w-[70%] place-self-center min-h-dvh grid grid-cols-2 gap-x-2 py-8">
+    <div class="flex flex-col gap-y-6">
+        <div class="flex items-center gap-x-2 border-[1px] border-primary/20 rounded-full w-fit px-4 py-0.5
+            bg-primary/10">
+            <figure class="w-fit h-fit"><Image src={starSvg} alt="star" width={24} height={24}/></figure>
+            <span class="font-light text-sm">{person[0].data.position}</span>
+        </div>
+        <p class="section_title">
+            <span>{person[0].data.firstName}</span><span class="text-primary">{person[0].data.lastName}</span>
+        </p>
+        <p class="font-poppins font-light text-xl capitalize break-words">
+            {person[0].data.description}
+        </p>
+        <p class="content">{person[0].body}</p>
+        <div class="w-fit">
+            <a href="#contact"
+                    class="bg-primary px-5 py-2 rounded-full capitalize text-white hover:bg-primary/80 cursor-pointer">
+                {system[0].data.hire}
+            </a>
         </div>
     </div>
-    <Resume lang={lang} />
 </section>
