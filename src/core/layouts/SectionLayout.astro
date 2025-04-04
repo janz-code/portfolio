@@ -1,8 +1,16 @@
 ---
 interface Props{
-    title?: string,
-    principal?: boolean;
+    title: string,
+    subtitle: string,
 }
-const {title} = Astro.props;
+const {title, subtitle} = Astro.props;
 ---
-<section></section>
+<section class="w-full h-fit py-10 flex flex-col gap-y-2">
+    <figure class="place-self-center border-[1px] px-8 py-0.5 uppercase rounded-full border-neutral-300">
+        <h3 class="content">{title}</h3>
+    </figure>
+    <div class="w-[40%] content_title text-center place-self-center text-wrap capitalize">
+        {subtitle}
+    </div>
+    <slot/>
+</section>

@@ -3,4 +3,7 @@ export default interface IPersonCollection{
     firstName: string,
     lastName: string,
     description: string,
+    years: number,
+    clients: number,
+    projects: number
 }
