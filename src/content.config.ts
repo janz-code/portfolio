@@ -2,10 +2,16 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import {heroSystemSchema} from "./modules/hero/content/system/schema.ts";
 import {heroPersonSchema} from "./modules/hero/content/person/schema.ts";
+import skillSystemSchema from "./modules/skills/content/system/schema.ts";
 
 const heroSystem = defineCollection({
   loader: glob({ pattern: '**/*.json', base: "./src/modules/hero/content/system"}),
   schema: heroSystemSchema,
+})
+
+const skillSystem = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: "./src/modules/skills/content/system"}),
+  schema: skillSystemSchema,
 })
 
 const heroPerson = defineCollection({
@@ -44,4 +50,4 @@ const projects = defineCollection({
 })
 
 
-export const collections = { services, homeResume, projects, heroPerson, heroSystem };
+export const collections = { services, homeResume, projects, heroPerson, heroSystem, skillSystem };

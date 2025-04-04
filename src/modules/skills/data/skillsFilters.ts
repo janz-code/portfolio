@@ -6,7 +6,9 @@ const skillFilters: ISkillFilter[] = [
     {key: 2, value: "Backend"},
     {key: 3, value: "Mobile"},
     {key: 4, value: "Tools"},
-    {key: 5, value: "Others"},
+    {key: 7, value: "Others"},
+    {key: 5, value: "Languages"},
+    {key: 6, value: "Soft Skills"},
 ]
 
 export default skillFilters;
