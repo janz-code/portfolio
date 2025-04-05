@@ -2,6 +2,8 @@ import {z} from "astro:content";
 
 
 const skillSystemSchema = z.object({
+    title: z.string(),
+    subtitle: z.string(),
     trainee: z.string(),
     beginner: z.string(),
     intermediate: z.string(),

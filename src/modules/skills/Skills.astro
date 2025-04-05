@@ -9,6 +9,6 @@ const systemCollection = await fetchCollection<ISkillSystem>("skillSystem", lang
 if(!systemCollection) return;
 const item = systemCollection[0];
 ---
-<SectionLayout title="Skills" subtitle="Skills subtitle">
+<SectionLayout title={item.data.title} subtitle={item.data.subtitle}>
     <SkillsIsland client:only="react" data={item.data} />
 </SectionLayout>

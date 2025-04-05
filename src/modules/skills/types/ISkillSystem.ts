@@ -1,4 +1,6 @@
 export default interface ISkillSystem {
+    title: string,
+    subtitle: string,
     trainee: string,
     beginner: string,
     intermediate: string,

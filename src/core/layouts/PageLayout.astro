@@ -61,11 +61,11 @@ const { title, lang, path }: Props = Astro.props;
             if (scroll > 10) {
                 header.classList.remove("w-[95%]")
                 const classesToAdd =
-                    "w-[50%] px-8 rounded-full py-5 top-14 bg-neutral-200/60".split(" ");
+                    "w-[50%] px-8 rounded-full py-4 top-14 bg-neutral-200/40".split(" ");
                 header.classList.add(...classesToAdd);
             } else {
                 const classesToRemove =
-                    "w-[50%] px-8 rounded-full py-5 top-14 bg-neutral-200/60".split(" ");
+                    "w-[50%] px-8 rounded-full py-4 top-14 bg-neutral-200/40".split(" ");
                 header.classList.remove(...classesToRemove);
                 header.classList.add("w-[95%]")
             }
