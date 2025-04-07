@@ -5,4 +5,5 @@ export interface IProjectSystem {
     inProgress: string;
     readMore: string;
     repository: string;
+    live: string;
 }

@@ -4,5 +4,6 @@
   "completed": "completed",
   "inProgress": "In Progress",
   "readMore": "Read More",
-  "repository": "View Repository"
+  "repository": "Repo",
+  "live": "Live Demo"
 }

@@ -7,5 +7,6 @@ export default interface IProjects {
     description: string;
     technologies: string[];
     repository?: string;
+    live?: string;
     coverUrl: string;
 }

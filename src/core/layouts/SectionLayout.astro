@@ -1,11 +1,12 @@
 ---
 interface Props{
+    id: string,
     title: string,
     subtitle: string,
 }
-const {title, subtitle} = Astro.props;
+const {title, subtitle, id} = Astro.props;
 ---
-<section class={`w-full h-fit py-10 flex flex-col gap-y-3`}>
+<section id={id} class={`w-full h-fit py-10 flex flex-col gap-y-3`}>
     <figure class="place-self-center border-[1px] px-8 py-0.5 uppercase rounded-full border-neutral-300">
         <h3 class="content">{title}</h3>
     </figure>
