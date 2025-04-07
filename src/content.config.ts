@@ -3,6 +3,16 @@ import { glob } from "astro/loaders";
 import {heroSystemSchema} from "./modules/hero/content/system/schema.ts";
 import {heroPersonSchema} from "./modules/hero/content/person/schema.ts";
 import skillSystemSchema from "./modules/skills/content/system/schema.ts";
+import projectDataSchema from "./modules/project/content/data/schema.ts";
+
+const projectsData = defineCollection({
+  loader: glob({pattern: '**/*.mdx', base: "./src/modules/project/content/data"}),
+  schema: projectDataSchema
+})
+
+const projectsSystem = defineCollection({
+  loader: glob({pattern: '**/*.json', base: "./src/modules/project/content/system"}),
+})
 
 const heroSystem = defineCollection({
   loader: glob({ pattern: '**/*.json', base: "./src/modules/hero/content/system"}),
@@ -35,19 +45,5 @@ const homeResume = defineCollection({
 });
 
 
-const projects = defineCollection({
-  loader: glob({ pattern: `**/*.md`, base: "./src/modules/home/content/projects" }),
-  schema: z.object({
-    name: z.string(),
-    category: z.string(),
-    type: z.string(),
-    skills: z.array(z.string()),
-    repo: z.string(),
-    cover: z.string(),
-    live: z.string(),
-    qualification: z.number(),
-  })
-})
-
-
-export const collections = { services, homeResume, projects, heroPerson, heroSystem, skillSystem };
+export const collections =
+    { services, homeResume, heroPerson, heroSystem, skillSystem, projectsSystem, projectsData };

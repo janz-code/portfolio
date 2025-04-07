@@ -5,7 +5,7 @@ interface Props{
 }
 const {title, subtitle} = Astro.props;
 ---
-<section class="w-full h-fit py-10 flex flex-col gap-y-2">
+<section class={`w-full h-fit py-10 flex flex-col gap-y-3`}>
     <figure class="place-self-center border-[1px] px-8 py-0.5 uppercase rounded-full border-neutral-300">
         <h3 class="content">{title}</h3>
     </figure>

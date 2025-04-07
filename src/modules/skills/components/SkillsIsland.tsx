@@ -10,6 +10,9 @@ import Achievement from "../assets/sys/Achievement.tsx";
 import ProjectsIcon from "../assets/sys/Projects.tsx";
 import Books from "../assets/sys/Books.tsx";
 import frontend from "../data/frontend.ts";
+import backend from "../data/backend.ts";
+import mobile from "../data/mobile.ts";
+import tools from "../data/tools.ts";
 
 interface Props{
     data: ISkillSystem
@@ -21,7 +24,10 @@ export default function SkillsIsland({data}: Props) {
 
     const handleActive = (key: number) => {
         if(key === 0) setItems(programming);
-        if(key === 1) setItems(frontend);
+        else if(key === 1) setItems(frontend);
+        else if(key === 2) setItems(backend);
+        else if(key === 3) setItems(mobile);
+        else if(key === 4) setItems(tools);
     }
 
     return(
@@ -30,7 +36,7 @@ export default function SkillsIsland({data}: Props) {
                 <SkillsFilters onChange={handleActive} />
             </ul>
             <article className="w-full h-fit font-poppins">
-                <ul className="w-full grid grid-cols-4 gap-5 p-5 items-stretch">
+                <ul className="w-full grid lg:grid-cols-2 2xl:grid-cols-3 gap-5 p-5 items-stretch">
                     {items.sort((a,b)=> b.level - a.level).map((item, index) => (
                         <li className="w-full h-full border-[1px] border-neutral-200 bg-white rounded-2xl p-5
                             gap-y-4 flex flex-col">
@@ -74,11 +80,13 @@ export default function SkillsIsland({data}: Props) {
                                     {data.learning} : {item.learning} {data.years}
                                 </div>
                             </div>
-                            <ul className="text-sm font-light px-2 gap-x-2 flex items-center py-1 justify-around">
-                                {item.usage.map((item, index) => (
-                                    <li key={index} className="capitalize">{item}</li>
-                                ))}
-                            </ul>
+                            {item.usage.length > 0 && (
+                                <ul className="text-sm font-light px-2 gap-x-2 flex items-center py-1 justify-around">
+                                    {item.usage.map((item, index) => (
+                                        <li key={index} className="capitalize">{item}</li>
+                                    ))}
+                                </ul>
+                            )}
                             {item.related.length > 0 && (
                                 <ul className="flex items-center justify-start gap-2 w-full font-light text-sm flex-wrap">
                                     {data.related} :

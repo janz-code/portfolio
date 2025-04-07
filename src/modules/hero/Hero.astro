@@ -19,8 +19,8 @@ const system = await fetchCollection<IHSystemCollection>("heroSystem", lang).the
 })
 if(!system) return;
 ---
-<section id="hero" class="w-[70%] place-self-center h-fit grid grid-cols-2 gap-x-2 py-8">
-    <div class="flex flex-col gap-y-6">
+<section id="hero" class="w-[70%] place-self-center min-h-dvh grid grid-cols-2 gap-x-2">
+    <div class="flex flex-col gap-y-6 justify-center">
         <div class="flex items-center gap-x-2 border-[1px] border-primary/20 rounded-full w-fit px-4 py-0.5
             bg-primary/10">
             <figure class="w-fit h-fit"><Image src={starSvg} alt="star" width={24} height={24}/></figure>
