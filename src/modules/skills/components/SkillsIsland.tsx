@@ -39,7 +39,7 @@ export default function SkillsIsland({data}: Props) {
             <article className="w-full h-fit font-poppins">
                 <ul className="w-full skills_container p-5 items-stretch">
                     {items.sort((a,b)=> b.level - a.level).map((item, index) => (
-                        <li className="w-full h-full border-[1px] border-neutral-200 bg-white rounded-2xl p-5
+                        <li className="w-full h-full border-[1px] border-neutral-200 bg-white rounded-2xl skills_item
                             gap-y-4 flex flex-col">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center justify-start gap-x-2">
