@@ -1,0 +1,12 @@
+.skills_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Valor por defecto para resoluciones menores */
+    gap: 20px;
+    justify-self: center;
+}
+
+@media (min-width: 1440px) {
+    .skills_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
