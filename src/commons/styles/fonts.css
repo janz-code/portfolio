@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'Cascadia Code';
+    src: url('/fonts/Cascadia_Code/CascadiaCode-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Cascadia Code';
+    src: url("/fonts/Cascadia_Code/CascadiaCode-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 700;
+    font-style: italic;
+    font-display: swap;
+}
+/* Regular */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Thin */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ExtraLight */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Light */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* SemiBold */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ExtraBold */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Black */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+/* Hairline (100) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProHairline.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProHairlineItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Extra Thin (200) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProExThin.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProExThinItalic.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Thin (300) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProThin.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProThinItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Light (400) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProLight.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProLightItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Regular (500) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProRegular.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium (600) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProMedium.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProMediumItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProBoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Heavy (800) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProHeavy.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProHeavyItalic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Italic Only (fallback for unclassified) */
+@font-face {
+    font-family: 'SweetSansPro';
+    src: url('/fonts/Sweet_Sans_Pro/SweetSansProItalic.otf') format('opentype');
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+}

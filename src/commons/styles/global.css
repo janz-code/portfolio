@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+@theme{
+    --font-poppins:'Poppins', sans-serif;
+    --font-cascadia: "Cascadia Code", sans-serif;
+    --font-sweet: 'SweetSansPro', sans-serif;
+    /*LIGHT COLORS*/
+    --color-light-bg: rgba(245, 244, 242, 1);
+    --color-light-surface: rgba(223, 220, 215, 1);
+    --color-light-border: rgba(221, 227, 232, 1);
+    --color-light-shadow: rgba(201, 209, 217, 1);
+    --color-light-hover-shadow: rgba(176, 188, 198, 1);
+}
