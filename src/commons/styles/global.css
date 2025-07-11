@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "./fonts.css";
-
+@custom-variant dark (&:where(.dark, .dark *));
 @theme{
     --font-poppins:'Poppins', sans-serif;
     --font-cascadia: "Cascadia Code", sans-serif;
