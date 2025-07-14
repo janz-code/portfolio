@@ -8,6 +8,7 @@ const translations: IContentLocales[] = [
 ]
 const getHeaderData = async (locale: string) => {
     const basePath = `/${locale}/`;
+    // @ts-ignore
     return {
         title: "janz",
         nav: [

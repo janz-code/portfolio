@@ -1,6 +1,9 @@
 ---
+import SunIcon from "../assets/icons/SunIcon.astro";
+import MoonIcon from "../assets/icons/MoonIcon.astro";
 import getHeaderData from "../content/header";
-import ThemeSelector from "./ThemeSelector.astro";
+import ThemeSelector from "./ThemeSelector.tsx";
+import LanguageChanger from "./LanguageChanger.astro";
 interface Props{
     id: number
 }
@@ -8,15 +11,17 @@ const {id} = Astro.props;
 const locale = Astro.currentLocale!;
 const data = await getHeaderData(locale);
 ---
-<header class="w-full h-fit font-cascadia grid grid-cols-5 items-center gap-5 font-light">
-    <h4 class="text-left uppercase select-none font-bold text-2xl font-poppins">{data.title}</h4>
-    <div class="col-span-3 flex items-center justify-center">
+<header class="fixed top-2 w-full h-fit font-cascadia grid grid-cols-5 items-center gap-5 font-light">
+    <div class="bg-light-surface h-full rounded-br-2xl px-6 w-fit">
+        <h4 class="text-left uppercase select-none font-bold text-2xl font-poppins">{data.title}</h4>
+    </div>
+    <div class="col-span-3 flex items-center justify-center select-none">
         <nav class="grid grid-cols-3 gap-x-1 w-fit bg-light-surface rounded-b-2xl pb-2
             px-1.5 justify-self-center relative">
             <figure class="absolute -right-[19px] top-0 w-5 h-5 rounded-br-2xl bg-light-surface"/>
             {data.nav.map((item,index)=>(
                 <a class={`px-6 py-1 transition-colors duration-500 rounded-full hover:bg-light-bg capitalize text-sm
-                    ${index===id && 'bg-light-bg'} text-center`}
+                    ${index===id && 'bg-light-bg'} text-center focus:outline-0`}
                     href={item.path} target="_self" data-astro-prefetch>
                     {item.label}
                 </a>
@@ -24,7 +29,15 @@ const data = await getHeaderData(locale);
             <figure class="absolute -left-[19px] top-0 w-5 h-5 rounded-bl-2xl bg-light-surface"/>
         </nav>
     </div>
-    <div class="bg-light-surface h-full rounded-bl-2xl px-6 w-fit justify-self-end flex items-center pb-2">
-        <ThemeSelector />
+    <div class="bg-light-surface h-full rounded-bl-2xl px-6 w-fit justify-self-end flex items-center pb-2 gap-2">
+        <ThemeSelector client:load>
+            <figure class="hidden dark:flex">
+                <SunIcon/>
+            </figure>
+            <figure class="flex dark:hidden">
+                <MoonIcon/>
+            </figure>
+        </ThemeSelector>
+        <LanguageChanger />
     </div>
 </header>

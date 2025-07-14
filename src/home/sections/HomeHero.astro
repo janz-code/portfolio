@@ -1,0 +1,19 @@
+---
+import HeroSocialCards from "../components/HeroSocialCards";
+import getSocialMedia from "../../commons/content/socialMedia";
+const locale = Astro.currentLocale!;
+const socialMedia = await getSocialMedia(locale);
+---
+<div class="w-[95%] h-dvh grid grid-cols-2 relative gap-10 pt-10">
+    <div></div>
+    <div class="absolute"></div>
+    <div class="flex justify-end-safe">
+        <section class="w-[450px] h-full flex flex-col justify-between items-end py-5">
+            <div class="">
+                a
+            </div>
+            <div></div>
+            <HeroSocialCards client:load data={socialMedia}/>
+        </section>
+    </div>
+</div>

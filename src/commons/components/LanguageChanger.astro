@@ -1,0 +1,11 @@
+---
+import LanguageIcon from "../assets/icons/LanguageIcon.astro";
+const locale = Astro.currentLocale!;
+const localeToReplace = locale === "en" ? "es" : "en";
+const ref = Astro.url.pathname.replace(locale, localeToReplace)
+---
+<div id="language" class="w-7 h-7 p-1 bg-light-bg text-gray-500 rounded-full cursor-pointer">
+    <a href={ref}>
+        <LanguageIcon />
+    </a>
+</div>
