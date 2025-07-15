@@ -1,19 +1,26 @@
 ---
 import HeroSocialCards from "../components/HeroSocialCards";
 import getSocialMedia from "../../commons/content/socialMedia";
+import {getHomeHero} from "../../commons/content/system";
 const locale = Astro.currentLocale!;
+const system = await getHomeHero(locale);
 const socialMedia = await getSocialMedia(locale);
+const bloggingSC = socialMedia.filter(a=> a.category === "blogging");
 ---
-<div class="w-[95%] h-dvh grid grid-cols-2 relative gap-10 pt-10">
+<div class="w-[95%] h-[95dvh] grid grid-cols-3 relative gap-10 pt-10">
     <div></div>
+    <div/>
     <div class="absolute"></div>
     <div class="flex justify-end-safe">
-        <section class="w-[450px] h-full flex flex-col justify-between items-end py-5">
+        <section class="w-full h-full flex flex-col justify-between items-end py-5">
             <div class="">
                 a
             </div>
             <div></div>
-            <HeroSocialCards client:load data={socialMedia}/>
+            <div class="w-full flex flex-col items-center-safe gap-y-5 px-4">
+                <h3 class="w-full text-2xl font-bold capitalize font-cascadia">{system.blogging}</h3>
+                <HeroSocialCards client:load data={bloggingSC}/>
+            </div>
         </section>
     </div>
 </div>
