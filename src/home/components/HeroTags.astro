@@ -1,0 +1,18 @@
+---
+import type {CSSProperties} from "react";
+interface Props{
+    name: string
+    layer: number
+}
+const {name, layer} = Astro.props;
+let styles: CSSProperties = {marginTop: 0}
+if(layer!==0){
+    styles = {marginTop: `${40*layer}px`}
+}
+---
+<div class="flex flex-col items-center mt-0 gap-y-1 font-poppins text-sm" style={styles}>
+    <figure class="w-8 h-8">
+        <slot/>
+    </figure>
+    <h5 class="font-light capitalize text-center">{name}</h5>
+</div>

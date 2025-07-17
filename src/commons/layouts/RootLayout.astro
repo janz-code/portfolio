@@ -20,12 +20,10 @@ const {lang, title, id} = Astro.props;
 		<ClientRouter/>
 		<title>{title}</title>
 	</head>
-	<body class="w-dvw h-dvh relative bg-light-surface p-2">
-		<div class="bg-light-bg w-full h-full rounded-lg">
-			<Header id={id}/>
-			<main class="w-full h-full min-h-full flex flex-col justify-center">
-				<slot/>
-			</main>
-		</div>
+	<body class="w-dvw h-dvh relative bg-light-bg p-2">
+		<Header id={0}/>
+		<main class="w-full h-full  overflow-y-auto">
+			<slot/>
+		</main>
 	</body>
 </html>

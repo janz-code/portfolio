@@ -1,0 +1,11 @@
+---
+interface Props{
+    field: string;
+    value: string;
+}
+const {field, value} = Astro.props;
+---
+<li class="flex items-center gap-x-2 text-base">
+    <span class="text-nowrap font-medium font-cascadia capitalize">{field}:</span>
+    <span class="text-nowrap font-light font-sweet capitalize">{value}</span>
+</li>

@@ -1,26 +1,22 @@
 ---
-import HeroSocialCards from "../components/HeroSocialCards";
-import getSocialMedia from "../../commons/content/socialMedia";
-import {getHomeHero} from "../../commons/content/system";
+import {getHomeHero} from "../content/system";
+import {Image} from "astro:assets"
+import profile from "../../commons/assets/images/profile.png";
+import LeftHero from "./LeftHero.astro";
 const locale = Astro.currentLocale!;
 const system = await getHomeHero(locale);
-const socialMedia = await getSocialMedia(locale);
-const bloggingSC = socialMedia.filter(a=> a.category === "blogging");
 ---
-<div class="w-[95%] h-[95dvh] grid grid-cols-3 relative gap-10 pt-10">
-    <div></div>
-    <div/>
-    <div class="absolute"></div>
-    <div class="flex justify-end-safe">
-        <section class="w-full h-full flex flex-col justify-between items-end py-5">
-            <div class="">
-                a
-            </div>
-            <div></div>
-            <div class="w-full flex flex-col items-center-safe gap-y-5 px-4">
-                <h3 class="w-full text-2xl font-bold capitalize font-cascadia">{system.blogging}</h3>
-                <HeroSocialCards client:load data={bloggingSC}/>
-            </div>
-        </section>
+<div class="w-[97%] h-full flex flex-col pt-10 gap-10 justify-self-center">
+    <div class="h-1/2">
+    </div>
+    <div class="w-full h-full rounded-2xl relative grid grid-cols-3">
+        <div class="grid gap-2">
+            <LeftHero/>
+        </div>
+        <div class="w-fit h-full bg-light-surface rounded-2xl relative place-self-center">
+            <div class="w-[500px]" />
+            <Image src={profile} alt="profile photo anime style" width={500}
+                   class="object-cover absolute bottom-0 right-0 rounded-br-2xl"/>
+        </div>
     </div>
 </div>

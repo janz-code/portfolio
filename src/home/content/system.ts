@@ -1,8 +1,10 @@
 const enHomeHero = {
-    blogging: "divulgation"
+    location: "Location",
+    birthday: "Birthday",
 }
 const esHomeHero = {
-    blogging: "divulgación"
+    location: "Ubicación",
+    birthday: "Cumpleaños"
 }
 
 export const getHomeHero = async (locale: string) => locale === "en" ? enHomeHero : esHomeHero;
