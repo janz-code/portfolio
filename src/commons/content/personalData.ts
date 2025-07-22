@@ -7,6 +7,7 @@ const getPersonalData = async (locale: string) => {
         city: "Santa Marta",
         country: "Colombia",
         birthday: "02-04-2001",
+        experience: isDefault ? "4 years" : "4 años"
     }
 }
 export default getPersonalData;
