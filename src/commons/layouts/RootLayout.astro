@@ -20,10 +20,11 @@ const {lang, title, id} = Astro.props;
 		<ClientRouter/>
 		<title>{title}</title>
 	</head>
-	<body class="w-dvw h-dvh relative bg-light-bg p-2">
+	<body class="w-dvw h-dvh relative bg-light-bg">
 		<Header id={0}/>
-		<main class="w-full h-full  overflow-y-auto">
+		<main id="root" class="w-full h-full overflow-y-auto py-2">
 			<slot/>
 		</main>
+		<script src="/src/commons/scripts/onPageLoad.ts" is:inline />
 	</body>
 </html>

@@ -1,0 +1,44 @@
+---
+import personalData from "../../commons/content/personalData";
+interface Props{
+    typing:string
+    wpmString: string
+    wpm: number
+    time: number
+    precision: number
+    locale: string
+}
+const {typing, wpm, wpmString, time, precision, locale} = Astro.props;
+import Clock from "../../commons/assets/icons/system/Clock.astro";
+import LanguageIcon from "../../commons/assets/icons/LanguageIcon.astro";
+import PrecisionIcon from "../../commons/assets/icons/system/PrecisionIcon.astro";
+---
+<div class="bg-light-surface rounded-2xl h-full p-3 flex flex-col justify-between">
+    <figure class="bg-light-bg rounded-xl px-3 py-0.5 w-fit font-cascadia font-light text-sm">
+        {typing}
+    </figure>
+    <div class="w-fit text-7xl font-cascadia relative flex items-center">
+        {wpm}
+        <p class="font-light text-2xl">{wpmString}</p>
+    </div>
+    <div class="grid grid-cols-3 gap-5 font-light font-sweet bg-light-bg py-2 px-1 rounded-xl text-sm">
+        <div class="flex items-center gap-1">
+            <figure class="w-5 h-5">
+                <Clock/>
+            </figure>
+            <span>{time}s</span>
+        </div>
+        <div class="flex items-center gap-1">
+            <figure class="w-5 h-5">
+                <PrecisionIcon/>
+            </figure>
+            <span>{precision}%</span>
+        </div>
+        <div class="flex items-center gap-1">
+            <figure class="w-5 h-5">
+                <LanguageIcon/>
+            </figure>
+            <span>{locale}</span>
+        </div>
+    </div>
+</div>

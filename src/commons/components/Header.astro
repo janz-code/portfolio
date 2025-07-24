@@ -11,7 +11,8 @@ const {id} = Astro.props;
 const locale = Astro.currentLocale!;
 const data = await getHeaderData(locale);
 ---
-<header class="fixed top-4 w-full h-fit font-cascadia grid grid-cols-3 items-center gap-5 font-light px-2 py-1">
+<header class="fixed top-1 w-[97%] justify-self-center h-fit font-cascadia grid grid-cols-3 items-center gap-5
+    font-light px-2 py-3 bg-light-bg/50 z-40 backdrop-blur-lg">
     <nav class="flex items-center-safe gap-x-2">
         {data.nav.map((item,index)=>(
             <a class={`px-5 py-1 transition-colors duration-500 rounded-full hover:bg-light-surface capitalize text-sm

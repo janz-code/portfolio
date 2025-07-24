@@ -1,0 +1,21 @@
+---
+interface Props{
+    label: string
+    value: string
+    path?: string
+}
+const {label, value, path} = Astro.props;
+const locale = Astro.currentLocale!;
+---
+<>
+    {path?
+        (<a href={`/${locale}/${path}`} class="group flex items-center gap-x-2">
+            <p class="capitalize font-cascadia font-semibold">{label}:</p>
+            <p class="font-light font-sweet group-hover:underline">{value}</p>
+        </a>):
+        (<div class="flex items-center gap-x-2">
+            <p class="capitalize font-cascadia font-semibold">{label}:</p>
+            <p class="font-light font-sweet">{value}</p>
+        </div>)
+    }
+</>

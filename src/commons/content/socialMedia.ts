@@ -13,7 +13,7 @@ export default async function getSocialMedia(locale: string){
             banner: "from-rose-400 to-amber-200", icon: instagramIcon
         },
         {
-            name: "Linkedin", url: "https://www.linkedin.com/in/juanzuniga79/", category: "blogging",
+            name: "Linkedin", url: "https://www.linkedin.com/in/juanzuniga79/", category: "professional",
             banner: "from-sky-200 to-sky-400 dark:from-blue-700 dark:to-blue-800", icon: linkedinIcon
         },
         {

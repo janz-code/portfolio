@@ -4,9 +4,11 @@ import {Image} from "astro:assets"
 import profile from "../../commons/assets/images/profile.png";
 import LeftHero from "./LeftHero.astro";
 import HeroServices from "../components/HeroServices.astro";
+import getPersonalData from "../../commons/content/personalData";
 const locale = Astro.currentLocale!;
 const system = await getHomeHero(locale);
 const title = locale === "en" ? '"Push forward, progress will follow you"' : '"Sigue adelante, el progreso te seguirá"'
+const personal = await getPersonalData(locale);
 ---
 <div class="w-[97%] h-full flex flex-col pt-10 gap-10 justify-self-center">
     <div class="h-2/5 min-h-1/3 flex items-center justify-center text-7xl font-cascadia">

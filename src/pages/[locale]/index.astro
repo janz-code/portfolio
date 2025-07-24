@@ -1,8 +1,14 @@
 ---
 import RootLayout from "../../commons/layouts/RootLayout.astro";
 import HomeHero from "../../home/sections/HomeHero.astro";
+import Services from "../../home/sections/Services.astro";
+import Testimonials from "../../home/sections/Testimonials.astro";
+import AboutMe from "../../home/sections/AboutMe.astro";
 const locale = Astro.currentLocale!;
 ---
 <RootLayout lang={locale} title="Temp title" id={0}>
     <HomeHero/>
+    <AboutMe/>
+    <Services />
+    <Testimonials/>
 </RootLayout>

@@ -36,7 +36,9 @@ const social = await getSocialMedia(locale);
                        class="rounded-full bg-light-bg p-0.5" />
             </div>
             <div class="flex flex-col items-center-safe pb-4 pt-10 font-sweet gap-y-3 px-2 w-full">
-                <h3 class="font-bold font-cascadia capitalize text-3xl">{personalData.name}</h3>
+                <div class="w-full flex flex-col items-center">
+                    <h3 class="font-bold font-cascadia capitalize text-3xl">{personalData.name}</h3>
+                </div>
                 <ul class="flex flex-col items-start w-full px-5">
                     <PersonalInfoLine field={system.location} value={`${personalData.city}, ${personalData.country}`} />
                     <PersonalInfoLine field={system.birthday} value={personalData.birthday} />
