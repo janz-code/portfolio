@@ -4,11 +4,17 @@ import HomeHero from "../../home/sections/HomeHero.astro";
 import Services from "../../home/sections/Services.astro";
 import Testimonials from "../../home/sections/Testimonials.astro";
 import AboutMe from "../../home/sections/AboutMe.astro";
+import Education from "../../home/sections/Education.astro";
+import Experience from "../../home/sections/Experience.astro";
+import Skills from "../../home/sections/Skills.astro";
 const locale = Astro.currentLocale!;
 ---
 <RootLayout lang={locale} title="Temp title" id={0}>
-    <HomeHero/>
-    <AboutMe/>
+    <HomeHero />
+    <AboutMe />
     <Services />
-    <Testimonials/>
+    <Testimonials />
+    <Education />
+    <Experience />
+    <Skills/>
 </RootLayout>

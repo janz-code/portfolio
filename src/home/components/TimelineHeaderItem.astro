@@ -1,0 +1,13 @@
+---
+import LanguageIcon from "../../commons/assets/icons/LanguageIcon.astro";
+interface Props{
+    content: string
+}
+const {content} = Astro.props;
+---
+<div class="flex items-center gap-x-2">
+    <figure class="w-5 h-5 text-text-muted">
+        <slot/>
+    </figure>
+    <h4>{content}</h4>
+</div>

@@ -20,9 +20,9 @@ const personal = await getPersonalData(locale)
             <div class="grid grid-cols-2 gap-x-10 gap-y-3 w-full">
                 <AboutContactLine label="name" value={`${personal.name} ${personal.lastName}`} />
                 <AboutContactLine label="location" value={`${personal.city}, ${personal.country}`} />
-                <AboutContactLine label="birthday" value={personal.birthday}/>
-                <AboutContactLine label="email" value={contact.email.label} path={contact.email.path}/>
-                <AboutContactLine label="linkedin" value={contact.linkedin.label} path={contact.linkedin.path}/>
+                <AboutContactLine label="birthday" value={personal.birthday} />
+                <AboutContactLine label="email" value={contact.email.label} path={contact.email.path} />
+                <AboutContactLine label="linkedin" value={contact.linkedin.label} path={contact.linkedin.path} />
                 <AboutContactLine label="phone" value="+57 (305) 472-5724" />
                 <AboutContactLine label="experience" value={personal.experience} />
             </div>

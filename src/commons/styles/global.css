@@ -11,4 +11,7 @@
     --color-light-border: rgba(221, 227, 232, 1);
     --color-light-shadow: rgba(201, 209, 217, 1);
     --color-light-hover-shadow: rgba(176, 188, 198, 1);
+    --color-text: rgba(47, 47, 45, 1);
+    --color-text-hover: rgba(30, 30, 28, 1);
+    --color-text-muted: rgba(122, 121, 117, 1);
 }

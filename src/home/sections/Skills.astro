@@ -1,0 +1,57 @@
+---
+import SectionLayout from "../../commons/layouts/SectionLayout.astro";
+import getSkills from "../../commons/content/skills";
+import {getProficiency} from "../../commons/utils/skillUitl";
+import Star from "../../commons/assets/icons/system/Star.astro";
+const locale = Astro.currentLocale!;
+const title = locale === "en" ? "Skills" : "Habilidades";
+const skills = await getSkills(locale);
+---
+<SectionLayout title={title}>
+    <ul class="grid grid-cols-3 list-none gap-5">
+        {skills.map(category => (
+            <li class="border-2 border-light-border px-4 py-2 rounded-2xl flex flex-col gap-y-3">
+                <h4 class="capitalize text-3xl font-cascadia font-semibold">{category.name}</h4>
+                <ul class="px-3 py-1 grid grid-cols-2 gap-x-1 gap-y-3 list-none">
+                    {category.skills.sort((a,b)=> b.proficiency-a.proficiency).map(skill => (
+                        <li class="grid grid-cols-6 items-start">
+                            <div class="p-1 rounded-md w-fit justify-self-start border-[1px]"
+                                    style={{backgroundColor: skill.color.surface, borderColor: skill.color.border}}>
+                                <figure class="w-5 h-5"
+                                        style={{color: skill.color.focus}}>
+                                    <skill.icon/>
+                                </figure>
+                            </div>
+                            <div class="flex flex-col gap-y-0.5 col-span-5 font-poppins font-light text-sm">
+                                <h4 class="capitalize font-semibold font-cascadia text-base">{skill.name}</h4>
+                                <div class="flex items-center gap-x-2">
+                                    <p>{skill.years} years</p>
+                                    -
+                                    <div class="flex items-center gap-x-0.5">
+                                        {skill.proficiency >= 8 && (
+                                            <figure class="w-5 h-5 text-amber-400">
+                                                <Star/>
+                                            </figure>
+                                        )}
+                                        <p>{getProficiency(skill.proficiency, locale)}</p>
+                                    </div>
+                                </div>
+                                {skill.relation && (
+                                    <ul class="flex items-center gap-1 flex-wrap">
+                                        {skill.relation.map(relation => (
+                                            <li class="capitalize border-[1px] px-2 rounded-md"
+                                                style={{borderColor: skill.color.border,
+                                                    backgroundColor: skill.color.surface, color: skill.color.focus}}>
+                                                {relation}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </li>
+        ))}
+    </ul>
+</SectionLayout>

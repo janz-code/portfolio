@@ -1,0 +1,79 @@
+---
+import type ITimeline from "../types/ITimeline"
+import type {IEducationTimeline} from "../types/ITimeline";
+import Book from "../../commons/assets/icons/system/Book.astro";
+import LanguageIcon from "../../commons/assets/icons/LanguageIcon.astro";
+import TimelineHeaderItem from "./TimelineHeaderItem.astro";
+import {i18nDate} from "../../commons/utils/dateUtils";
+import Callendar from "../../commons/assets/icons/system/Callendar.astro";
+import Storm from "../../commons/assets/icons/system/Storm.astro";
+import Achieve from "../../commons/assets/icons/system/Achieve.astro";
+interface Props{
+    data: ITimeline[] | IEducationTimeline[]
+    type: "basic" | "education"
+}
+const {data, type} = Astro.props;
+const locale = Astro.currentLocale!;
+---
+<section>
+    <slot/>
+    <ul class="relative h-fit py-10 flex flex-col gap-y-3">
+        {data.map((item,i)=>(
+            <li class="relative flex gap-x-4 items-start group cursor-pointer">
+                <figure class="mt-1 min-w-5 w-5 h-5 rounded-full border-[1px] group-hover:bg-light-hover-shadow
+                    group-hover:border-light-hover-shadow transition-all duration-500 bg-light-bg
+                    border-light-shadow z-10"></figure>
+                <div class="absolute top-5 left-[9px] w-[1px] h-full bg-light-shadow
+                        group-hover:bg-light-hover-shadow z-0"></div>
+                <div class="flex flex-col gap-y-1">
+                    <div class="flex items-center gap-x-2 font-cascadia text-xl capitalize font-semibold">
+                        {type==="education" && (
+                                <figure class="w-6 h-6 text-text-muted">
+                                    <Book/>
+                                </figure>
+                        )}
+                        <h3>{item.name}</h3>
+                        |
+                        <h3>{item.institution}</h3>
+                    </div>
+                    <div class="flex items-center px-8 gap-x-3 font-light font-sweet capitalize">
+                        <TimelineHeaderItem content={item.location}>
+                            <LanguageIcon/>
+                        </TimelineHeaderItem>
+                        <figure class="h-4 w-[2px] bg-light-shadow"/>
+                        <TimelineHeaderItem
+                                content={i18nDate(locale, item.startDate, item.endDate)}>
+                            <Callendar/>
+                        </TimelineHeaderItem>
+                        <figure class="h-4 w-[2px] bg-light-shadow"/>
+                        <TimelineHeaderItem
+                                content={item.type}>
+                            <Storm/>
+                        </TimelineHeaderItem>
+                    </div>
+                    {item.achievements && (
+                        <div class="border-[1px] py-2 rounded-2xl border-light-shadow mt-2
+                            group-hover:border-light-hover-shadow duration-500 transition-all pl-5">
+                            <div class="flex items-center">
+                                <figure class="w-10 h-10"><Achieve/></figure>
+                                <h3 class="font-cascadia text-xl">Achievement</h3>
+                            </div>
+                            {item.achievements.length > 0 && (
+                                <ul class="flex flex-col pl-10">
+                                    {item.achievements.map(item => (
+                                        <li class="font-poppins font-light flex items-start gap-x-4 relative">
+                                            <figure class="min-w-1.5 w-1.5 h-1.5 rounded-full bg-light-shadow absolute
+                                                group-hover:bg-light-hover-shadow transition-all duration-500
+                                                top-2 -left-6"/>
+                                            <span class="first-letter:capitalize">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </li>
+        ))}
+    </ul>
+</section>

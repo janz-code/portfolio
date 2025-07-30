@@ -1,0 +1,18 @@
+---
+import SectionLayout from "../../commons/layouts/SectionLayout.astro";
+import Timeline from "../components/Timeline.astro";
+import type {IEducationTimeline} from "../types/ITimeline";
+import getEducation from "../../commons/content/education";
+const locale = Astro.currentLocale!;
+const isDefault = locale === "en";
+const title = isDefault ? "Education": "Educación";
+const data = await getEducation(locale);
+const left = data.filter(i=> i.achievements);
+const right = data.filter(i=> !i.achievements);
+---
+<SectionLayout title={title}>
+    <div class="grid grid-cols-2 gap-5">
+        <Timeline data={left} type="education" />
+        <Timeline data={right} type="education" />
+    </div>
+</SectionLayout>
