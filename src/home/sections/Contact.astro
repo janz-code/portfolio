@@ -1,0 +1,88 @@
+---
+import SendIcon from "../../commons/assets/icons/system/SendIcon.astro";
+import ContactForm from "../../commons/components/ContactForm";
+import Send2Icon from "../../commons/assets/icons/system/Send2Icon.astro";
+import EmailIcon from "../../commons/assets/icons/system/EmailIcon.astro";
+import ContactInfoItem from "../../commons/components/ContactInfoItem.astro";
+import PhoneIcon from "../../commons/assets/icons/system/PhoneIcon.astro";
+import LocationIcon from "../../commons/assets/icons/system/LocationIcon.astro";
+import AddIcon from "../../commons/assets/icons/system/AddIcon.astro";
+import SectionLayout from "../../commons/layouts/SectionLayout.astro";
+const isDefault = Astro.currentLocale! === "en";
+const formTitle = isDefault ? "Send a message" : "Envíame un mensaje";
+const formSubtitle = isDefault
+    ? "Let’s start a conversation — I’ll get back to you as soon as possible."
+    : "Iniciemos una conversación — te responderé lo antes posible.";
+const contactInfoTitle = isDefault ? "Contact Information" : "Información de Contacto";
+const contactInfoSubtitle = isDefault
+    ? "Prefer direct contact? Reach out through any of these channels."
+    : "¿Prefieres un contacto directo? Escríbeme por cualquiera de estos medios.";
+const socialTitle = isDefault ? "Follow Me" : "Sígueme";
+const socialSubtitle = isDefault
+    ? "Stay updated with my latest work, projects, and thoughts."
+    : "Mantente al día con mis últimos trabajos, proyectos y reflexiones.";
+const email = "jczp_020401@hotmail.com"
+const phone = "+57 (305) 472 5724"
+const location = "Santa Marta - Magdalena, Colombia"
+const title = isDefault ? "contact" : "contacto"
+---
+<SectionLayout title={title}>
+    <section class="grid md:grid-cols-2 items-center 2xl:gap-8 gap-5 w-full mb-5">
+        <div class="flex flex-col gap-y-8 w-full bg-white border-[1px] border-light-border rounded-2xl p-6
+        hover:shadow-xl shadow-surface-focus">
+            <div>
+                <div class="flex items-center gap-x-3">
+                    <figure class="w-5 h-5 2xl:w-7 2xl:h-7">
+                        <SendIcon/>
+                    </figure>
+                    <h3 class="text-lg 2xl:text-2xl font-jetbrains font-semibold">{formTitle}</h3>
+                </div>
+                <span class="w-full font-poppins text-sm 2xl:text-base font-light">{formSubtitle}</span>
+            </div>
+            <ContactForm client:only isDefault={isDefault}>
+                <SendIcon/>
+            </ContactForm>
+        </div>
+        <div class="flex flex-col 2xl:gap-8 gap-5 w-full font-poppins text-text">
+            <div class="bg-white p-4 2xl:p-6 w-full border-light-border border-[1px] rounded-lg 2xl:rounded-2xl
+            flex flex-col gap-4 hover:shadow-xl shadow-surface-focus">
+                <div class="flex items-center gap-5">
+                    <div class="bg-light-bg p-2 border-light-border border-[1px] rounded-md">
+                        <figure class="2xl:w-6 2xl:h-6 w-5 h-5">
+                            <AddIcon/>
+                        </figure>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl 2xl:text-2xl font-jetbrains">{socialTitle}</h3>
+                        <h4 class="font-light 2xl:text-base text-sm">{socialSubtitle}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 2xl:p-6 w-full border-light-border border-[1px] rounded-2xl flex flex-col gap-4
+            hover:shadow-xl shadow-surface-focus">
+                <div class="flex items-center gap-5">
+                    <div class="bg-light-bg p-2 border-light-border border-[1px] rounded-md">
+                        <figure class="2xl:w-6 2xl:h-6 w-5 h-5">
+                            <Send2Icon/>
+                        </figure>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold 2xl:text-2xl text-xl font-jetbrains">{contactInfoTitle}</h3>
+                        <h4 class="font-light 2xl:text-base text-sm">{contactInfoSubtitle}</h4>
+                    </div>
+                </div>
+                <div class="2xl:pl-16 pl-14 flex flex-col gap-y-3">
+                    <ContactInfoItem content={email} label="Email">
+                        <EmailIcon/>
+                    </ContactInfoItem>
+                    <ContactInfoItem content={phone} label="Phone">
+                        <PhoneIcon/>
+                    </ContactInfoItem>
+                    <ContactInfoItem content={location} label="Location">
+                        <LocationIcon/>
+                    </ContactInfoItem>
+                </div>
+            </div>
+        </div>
+    </section>
+</SectionLayout>
