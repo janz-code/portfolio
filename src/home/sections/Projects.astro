@@ -1,0 +1,12 @@
+---
+import {getCollection} from "astro:content"
+import SectionLayout from "../../commons/layouts/SectionLayout.astro"
+const locale = Astro.currentLocale!;
+const title = locale === "en" ? "projects" : "proyectos"
+const projects = await getCollection("projects")
+const data = projects.filter(p => p.id.startsWith(locale))
+console.log(data)
+---
+<SectionLayout title={title}>
+
+</SectionLayout>

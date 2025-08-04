@@ -1,18 +1,18 @@
 import type {ICategory} from "../types/ISkill.ts";
-import {python,rust,sql,kotlin,csharp,java,go,clang,typescript} from "../data/languages.ts"
-import {angular, astro, blazor, css, html, markdown, next, react, scss, tailwind} from "../data/frontend.ts";
-import {django, dotnet, fastapi, fiber, nest, rocket, spring} from "../data/backend.ts";
+import {sql, kotlin, csharp, java, go, typescript, rust, clang} from "../data/languages.ts"
+import {android, angular, astro, blazor, native, next, react, scss, tailwind, tauri, wails} from "../data/frontend.ts";
+import {dotnet, fiber, gin, nest, rocket, spring} from "../data/backend.ts";
 import {clean, event, hex, micro, onion} from "../data/architecture.ts";
 import {aws, azure, docker, google, vercel} from "../data/tools.ts";
 const getSkills = async (locale: string) => {
     const isDefault = locale === "en";
     return [
         {name: isDefault ? "languages":"lenguajes", code: "clang",
-            skills: [python,rust,sql,kotlin,csharp,java,go,clang,typescript]},
+            skills: [sql,kotlin,csharp,java,go,typescript, rust, clang]},
         {name: "frontend", code: "cfront",
-            skills: [angular, astro, css, html, markdown, next, react, scss, tailwind, blazor]},
+            skills: [angular, astro, next, react, scss, tailwind, blazor, tauri, wails, native, android]},
         {name: "backend", code: "cback",
-            skills: [dotnet, spring, fastapi, django, fiber, nest, rocket]},
+            skills: [dotnet, spring, fiber, nest, rocket, gin]},
         {name: isDefault ? "architecture" : "arquitectura", code: "carch",
             skills: [clean, onion, micro, event, hex]},
         {name: isDefault ? "others":"otros", code: "cothers", skills: [azure, aws, google, docker, vercel]}

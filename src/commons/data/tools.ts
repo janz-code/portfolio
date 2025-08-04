@@ -6,8 +6,7 @@ import Azure from "../assets/icons/tech/azure.astro"
 import Aws from "../assets/icons/tech/aws.astro"
 import Docker from "../assets/icons/tech/docker.astro"
 
-export const vercel: ISkill = {name: "vercel", code: "tvercel", color: gray, icon: Vercel, years: 3, proficiency: 6,
-    relation: ["next", "react", "astro"]}
+export const vercel: ISkill = {name: "vercel", code: "tvercel", color: gray, icon: Vercel, years: 3, proficiency: 6}
 export const google: ISkill = {name: "google cloud", code: "tgoogle", color: orange, icon: Google, years: 1,
     proficiency: 4}
 export const azure: ISkill = {name: "azure", code: "tazure", color: blue, icon: Azure, years: 3, proficiency: 6}

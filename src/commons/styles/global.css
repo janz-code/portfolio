@@ -15,3 +15,7 @@
     --color-text-hover: rgba(30, 30, 28, 1);
     --color-text-muted: rgba(122, 121, 117, 1);
 }
+
+.onResizeFit{
+    interpolate-size: allow-keywords;
+}

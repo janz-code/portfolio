@@ -12,11 +12,9 @@ export const spring: ISkill = {name: "spring boot", code: "bspring", icon: Sprin
     years: 4, relation: ["java", "kotlin", "hibernate", "spring cloud", "jpa", "rabbitMQ"]}
 export const dotnet: ISkill = {name: "asp.net core", code: "dotnet", icon: Dotnet, color: indigo, proficiency: 8,
     years: 4, relation: ["ef core", "aspire", "csharp"]}
-export const fastapi: ISkill = {name: "fast API", code: "bfastapi", icon: FastApi, color: emerald, proficiency: 6,
-    years: 2, relation: ["tortoiseORM", "python"]}
-export const django: ISkill = {name: "django", code: "bdjango", icon: Django, color: emerald, proficiency: 6,
-    years: 3, relation: ["python"]}
 export const fiber: ISkill = {name: "fiber", code: "bfiber", icon: Go, color: blue, proficiency: 4, years: 1,
+    relation: ["go", "gORM"]}
+export const gin: ISkill = {name: "gin", code: "bgin", icon: Go, color: blue, proficiency: 3, years: 1,
     relation: ["go", "gORM"]}
 export const nest: ISkill = {name: "nest", code: "bnest", icon: Nest, color: red, proficiency: 8, years: 4,
     relation: ["typescript", "node", "prisma", "typeorm"]}
