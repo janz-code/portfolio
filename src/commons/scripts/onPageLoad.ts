@@ -5,6 +5,7 @@ if(root) {
         if(path.length <= 4){
             const top = localStorage.getItem("rootScroll");
             if(!top) return;
+            console.log("Restoring scroll position to", top);
             root.scrollTo({top: Number(top), behavior: "smooth"});
         }
     })

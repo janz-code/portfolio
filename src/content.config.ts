@@ -6,11 +6,11 @@ const projects = defineCollection({
     schema: z.object({
         name: z.string(),
         picture: z.optional(z.string()),
-        status: z.enum(["done", "terminado", "developing", "desarrollando", "deleted", "eliminado", "paused", "pausado"]),
+        status: z.enum(["done", "in-progress", "planning", "abandoned", "deleted", "featured"]),
         short_description: z.string(),
         repo: z.optional(z.string()),
         live: z.optional( z.string()),
-        repo_doc: z.optional(z.string()),
+        stack: z.optional(z.array(z.string())),
     })
 })
 
