@@ -1,75 +1,102 @@
 ---
-import {getCollection} from "astro:content"
-import SectionLayout from "../../commons/layouts/SectionLayout.astro"
+import { getCollection } from "astro:content";
+import SectionLayout from "../../commons/layouts/SectionLayout.astro";
 import { render } from "astro:content";
-import GitIcon from "../../commons/assets/icons/tech/git.astro"
-import LiveIcon from "../../commons/assets/icons/system/Live.astro"
+import { Image } from "astro:assets";
+import GitIcon from "../../commons/assets/icons/tech/git.astro";
+import LiveIcon from "../../commons/assets/icons/system/Live.astro";
 const locale = Astro.currentLocale!;
-const title = locale === "en" ? "projects" : "proyectos"
-const projects = await getCollection("projects", (data)=> data.id.startsWith(locale))
+const title = locale === "en" ? "projects" : "proyectos";
+const projects = await getCollection(
+  "projects",
+  (data) => data.id.startsWith(locale) && data.data.priority > 7,
+);
 const data = await Promise.all(
-    projects.map(async (project) => {
-        return {
-            id: project.id,
-            data: project.data,
-            render: await render(project)
-        }
-    })
+  projects.map(async (project) => {
+    return {
+      id: project.id,
+      data: project.data,
+      render: await render(project),
+    };
+  }),
 );
 ---
+
 <SectionLayout title={title}>
-    <div class="grid grid-cols-5 gap-5">
-        {data.map((project) => (
-            <div class="border-[1px] border-light-border rounded-2xl bg-white overflow-hidden relative">
-                <div class="w-full h-56 bg-light-surface">
-                    {project.data.picture ? (
-                        <></>
-                    ):(
-                        <div class="flex flex-col items-center justify-center font-cascadia font-bold h-full">
-                            <p class="text-6xl">404</p>
-                            <p class="uppercase text-3xl">not found</p>
-                        </div>
-                    )}
-                </div>
-                <div class="px-3 py-4 flex flex-col gap-y-2 relative">
-                    <div class={`absolute right-2 -top-3 text-sm px-2 py-0.5 capitalize rounded-md text-text-hover
+  <div class="grid grid-cols-5 gap-5">
+    {
+      data.map((project) => (
+        <div class="border-[1px] border-light-border rounded-2xl bg-white overflow-hidden relative h-fit">
+          <div class="w-full h-46 bg-light-surface">
+            {project.data.picture ? (
+              <Image
+                src={project.data.picture}
+                alt={`${project.data.name} picture`}
+                width={600}
+                height={338}
+                class="w-full h-full object-cover"
+              />
+            ) : (
+              <div class="flex flex-col items-center justify-center font-cascadia font-bold h-full">
+                <p class="text-6xl">404</p>
+                <p class="uppercase text-3xl">not found</p>
+              </div>
+            )}
+          </div>
+          <div class="px-3 py-4 flex flex-col gap-y-2 relative">
+            <div
+              class={`absolute right-2 -top-3 text-sm px-2 py-0.5 capitalize rounded-md text-text-hover
                         ${project.data.status === "in-progress" && "bg-amber-500"}
                         ${project.data.status === "done" && "bg-emerald-500"}
                         ${project.data.status === "planning" && "bg-sky-500"}
                         ${project.data.status === "abandoned" && "bg-rose-500"}
                         ${project.data.status === "deleted" && "bg-red-500"}
-                        ${project.data.status === "featured" && "bg-indigo-500 text-white"}`}>
-                        {project.data.status}
-                    </div>
-                    <h3 class="font-cascadia font-semibold text-xl capitalize">{project.data.name}</h3>
-                    <p class="text-base text-text">{project.data.short_description}</p>
-                    {project.data.stack && (
-                        <ul class="flex items-center gap-1 flex-wrap justify-start text-text-hover font-sweet">
-                            {project.data.stack.map((item) => (
-                                <li class="text-sm text-white px-2 py-0.5 rounded-lg bg-blue-500 capitalize font-light">{item}</li>
-                            ))}
-                        </ul>
-                    )}
-                    <div class="flex items-center justify-between gap-x-2 px-1">
-                        {project.data.repo && (
-                            <a href={project.data.repo} target="_blank" class="capitalize text-sm text-emerald-600
-                                hover:bg-emerald-300 p-0.5 rounded-full">
-                                <figure class="w-5 h-5">
-                                    <GitIcon/>
-                                </figure>
-                            </a>
-                        )}
-                        {project.data.live && (
-                            <a href={project.data.live} target="_blank" class="capitalize text-sm text-amber-600
-                                hover:bg-amber-300 p-0.5 rounded-full">
-                                <figure class="w-5 h-5">
-                                    <LiveIcon/>
-                                </figure>
-                            </a>
-                        )}
-                    </div>
-                </div>
+                        ${project.data.status === "featured" && "bg-indigo-500 text-white"}`}
+            >
+              {project.data.status}
             </div>
-        ))}
-    </div>
+            <h3 class="font-cascadia font-semibold text-xl capitalize">
+              {project.data.name}
+            </h3>
+            <p class="text-base text-text">{project.data.short_description}</p>
+            {project.data.stack && (
+              <ul class="flex items-center gap-1 flex-wrap justify-start text-text-hover font-sweet">
+                {project.data.stack.map((item) => (
+                  <li class="text-sm text-white px-2 py-0.5 rounded-lg bg-blue-500 capitalize font-semibold">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div class="flex items-center justify-between gap-x-2 px-1">
+              {project.data.repo && (
+                <a
+                  href={project.data.repo}
+                  target="_blank"
+                  class="capitalize text-sm text-emerald-600
+                                hover:bg-emerald-300 p-0.5 rounded-full"
+                >
+                  <figure class="w-5 h-5">
+                    <GitIcon />
+                  </figure>
+                </a>
+              )}
+              {project.data.live && (
+                <a
+                  href={project.data.live}
+                  target="_blank"
+                  class="capitalize text-sm text-amber-600
+                                hover:bg-amber-300 p-0.5 rounded-full"
+                >
+                  <figure class="w-5 h-5">
+                    <LiveIcon />
+                  </figure>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </SectionLayout>
