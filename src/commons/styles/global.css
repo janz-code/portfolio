@@ -2,6 +2,7 @@
 @import "./fonts.css";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme{
+    --breakpoint-3xl: 1920px;
     --font-poppins:'Poppins', sans-serif;
     --font-cascadia: "Cascadia Code", sans-serif;
     --font-sweet: 'SweetSansPro', sans-serif;

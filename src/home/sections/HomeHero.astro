@@ -10,15 +10,15 @@ const system = await getHomeHero(locale);
 const title = locale === "en" ? '"Push forward, progress will follow you"' : '"Sigue adelante, el progreso te seguirá"'
 const personal = await getPersonalData(locale);
 ---
-<div class="w-[97%] h-full flex flex-col pt-10 gap-10 justify-self-center">
-    <div class="h-2/5 min-h-1/3 flex items-center justify-center text-7xl font-cascadia">
+<div class="lg:w-[95%] 2xl:w-[97%] h-full flex flex-col 3xl:pt-10 3xl:gap-10 justify-self-center">
+    <div class="h-2/5 min-h-2/5 flex items-center justify-center lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-cascadia">
         <h2 class="first-letter:italic first-letter:font-bold text-center">
             {title}
         </h2>
     </div>
-    <div class="w-full h-3/5 rounded-2xl relative grid grid-cols-5 bg-light-surface p-4">
+    <div class="w-full h-3/5 rounded-2xl relative grid lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 bg-light-surface p-4">
         <LeftHero/>
-        <div class="col-span-3"/>
+        <div class="xl:col-span-2 3xl:col-span-3"/>
         <div class="grid items-end w-full">
             <HeroServices/>
         </div>
