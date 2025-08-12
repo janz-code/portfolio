@@ -9,7 +9,7 @@ const title = locale === "en" ? "Skills" : "Habilidades";
 const skills = await getSkills(locale);
 ---
 <SectionLayout title={title}>
-    <ul class="grid 3xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 list-none gap-3 2xl:gap-5">
+    <ul class="grid 3xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 list-none gap-3 2xl:gap-5">
         {skills.sort((a,b)=> a.skills.length-b.skills.length).map(category => (
             <CategoryContainer client:load category={category} locale={locale} items={category.skills.length}>
                 {category.skills.sort((a,b)=> b.proficiency-a.proficiency).map(skill => (

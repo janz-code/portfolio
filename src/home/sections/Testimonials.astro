@@ -7,7 +7,7 @@ const title = locale === "en" ? "Testimonials" : "Testimonios"
 const data = await getTestimonials(locale);
 ---
 <SectionLayout title={title}>
-    <div class="grid grid-cols-2 gap-5 relative h-fit w-full">
+    <div class="grid grid-cols-3 lg:grid-cols-2 gap-5 relative h-fit w-full">
         <TestimonialsIsland client:visible data={data} />
     </div>
 </SectionLayout>

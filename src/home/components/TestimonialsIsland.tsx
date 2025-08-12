@@ -9,7 +9,7 @@ export default function TestimonialsIsland({data}: Props) {
         <>
             <ul className="w-full flex items-center justify-center relative h-full">
                 {data.map((item,index) => (
-                    <li key={index} className={`w-[150px] h-[150px] rounded-lg bg-light-surface
+                    <li key={index} className={`w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-lg bg-light-surface
                         overflow-hidden absolute transition-all duration-500 border-2 border-light-shadow`}
                         style={{zIndex: index===active ? data.length : index,
                             rotate: `${index===active? 0 : 16*(index+1)}deg`}}>
@@ -21,7 +21,7 @@ export default function TestimonialsIsland({data}: Props) {
                     </li>
                 ))}
             </ul>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-2 md:col-span-2 lg:col-span-1">
                 <div className="font-cascadia place-self-end pr-5">
                     {active+1} / {data.length}
                 </div>

@@ -8,7 +8,7 @@ const data = temp.sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 const title = locale === "en" ? "Experience" : "Experiencia";
 ---
 <SectionLayout title={title}>
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid lg:grid-cols-2 gap-5">
         <Timeline data={[data[0]]} type="education" />
         <Timeline data={data.slice(1)} type="education" />
     </div>

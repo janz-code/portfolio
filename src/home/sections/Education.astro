@@ -11,7 +11,7 @@ const left = data.filter(i=> i.achievements);
 const right = data.filter(i=> !i.achievements);
 ---
 <SectionLayout title={title}>
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid lg:grid-cols-2 gap-5">
         <Timeline data={left} type="education" />
         <Timeline data={right} type="education" />
     </div>
