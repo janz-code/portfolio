@@ -27,10 +27,10 @@ export default function TestimonialsIsland({data}: Props) {
                 </div>
                 <div className="w-full h-fit py-5 px-4 font-sweet bg-light-surface rounded-2xl flex flex-col gap-y-5">
                     <div>
-                        <h3 className="font-bold font-cascadia text-2xl">{data[active].title}</h3>
-                        <h4 className="font-semibold font-cascadia">{data[active].subtitle}</h4>
+                        <h3 className="font-bold font-cascadia text-lg xl:text-2xl">{data[active].title}</h3>
+                        <h4 className="font-semibold text-sm xl:text-base font-cascadia">{data[active].subtitle}</h4>
                     </div>
-                    <p className="font-poppins font-light">{data[active].description}</p>
+                    <p className="font-poppins font-light text-sm xl:text-base">{data[active].description}</p>
                 </div>
                 <div className="flex items-center gap-x-4 place-self-end">
                     <Button handler={()=> setActive(prev => active === 0 ? data.length-1 : prev-1)}>

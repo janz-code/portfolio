@@ -23,7 +23,7 @@ const data = await Promise.all(
 ---
 
 <SectionLayout title={title}>
-  <div class="grid grid-cols-5 gap-5">
+  <div class="grid 3xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-5">
     {
       data.map((project) => (
         <div class="border-[1px] border-light-border rounded-2xl bg-white overflow-hidden relative h-fit">
@@ -55,14 +55,15 @@ const data = await Promise.all(
             >
               {project.data.status}
             </div>
-            <h3 class="font-cascadia font-semibold text-xl capitalize">
+            <h3 class="font-cascadia font-semibold text-lg xl:text-xl capitalize">
               {project.data.name}
             </h3>
-            <p class="text-base text-text">{project.data.short_description}</p>
+            <p class="text-sm xl:text-base text-text">{project.data.short_description}</p>
             {project.data.stack && (
               <ul class="flex items-center gap-1 flex-wrap justify-start text-text-hover font-sweet">
                 {project.data.stack.map((item) => (
-                  <li class="text-sm text-white px-2 py-0.5 rounded-lg bg-blue-500 capitalize font-semibold">
+                  <li class="text-xs xl:text-sm text-white px-2 lg:py-1 xl:py-0.5 rounded-lg
+                    bg-blue-500 capitalize font-semibold">
                     {item}
                   </li>
                 ))}

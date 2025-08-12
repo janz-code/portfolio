@@ -4,11 +4,11 @@ const locale = Astro.currentLocale!;
 const data = await getServices(locale);
 const title = locale === "en" ? "Services" : "Servicios"
 ---
-<div class="w-full min-w-full bg-light-bg p-4 rounded-2xl h-fit flex flex-col gap-y-2">
+<div class="w-full min-w-fit bg-light-bg p-4 rounded-2xl h-fit flex flex-col gap-y-2">
     <h3 class="xl:text-xl 2xl:text-2xl lg:text-base font-bold font-cascadia w-full">{title}</h3>
     <ul class="flex flex-col gap-y-2 w-full">
         {data.map((item, i) => (
-            <li class="flex items-start gap-x-2">
+            <li class="flex items-start gap-x-2 lg:text-sm">
                 <figure class="w-5 h-5">
                     <item.icon/>
                 </figure>

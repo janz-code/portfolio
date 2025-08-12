@@ -14,11 +14,15 @@ const system = await getHomeHero(locale)
 const personal = await getPersonalData(locale)
 ---
 <SectionLayout title={title}>
-    <div class="grid grid-cols-3 2xl:grid-cols-5 gap-5">
-        <div class="grid grid-cols-2 col-span-2 gap-x-5 gap-y-5">
-            <h2 class="text-center text-xl 2xl:text-3xl capitalize font-bold font-cascadia col-span-2">{personal.job}</h2>
-            <div class="2xl:col-span-3 flex flex-col gap-y-10 items-start place-self-end w-full">
-                <div class="grid grid-cols-1 2xl:grid-cols-3 gap-y-1 w-full">
+    <div class="grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-5 h-fit">
+        <div class="grid grid-cols-2 col-span-2 lg:col-span-3 xl:grid-cols-3 2xl:col-span-4 3xl:grid-cols-4
+            gap-x-5 gap-y-5 h-full items-end">
+            <h2 class="text-center text-xl lg:text-3xl lg:col-span-3 2xl:text-3xl 3xl:text-5xl capitalize font-bold font-cascadia col-span-2
+                3xl:col-span-4">
+                {personal.job}
+            </h2>
+            <div class="lg:col-span-2 3xl:col-span-3 flex flex-col gap-y-10 items-start w-full">
+                <div class="grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-y-1 w-full 3xl:text-lg">
                     <AboutContactLine label="name" value={`${personal.name} ${personal.lastName}`} />
                     <AboutContactLine label="location" value={`${personal.city}, ${personal.country}`} />
                     <AboutContactLine label="birthday" value={personal.birthday} />
@@ -28,7 +32,7 @@ const personal = await getPersonalData(locale)
                     <AboutContactLine label="experience" value={personal.experience} />
                 </div>
             </div>
-            <div class="grid grid-rows-1 place-self-end w-full min-h-56">
+            <div class="grid w-full h-56">
                 <WPM wpm={personal.wpm} wpmString={system.wpm} typing={system.typing} time={personal.time}
                      locale={personal.locale} precision={personal.precision} />
             </div>

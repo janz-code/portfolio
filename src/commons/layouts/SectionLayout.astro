@@ -4,9 +4,9 @@ interface Props{
 }
 const {title} = Astro.props;
 ---
-<section class="py-8 w-[95%] xl:w-[90%] flex flex-col gap-y-20 justify-self-center">
+<section class="py-8 w-[95%] xl:w-[92%] 2xl:w-[90%] flex flex-col gap-y-14 2xl:gap-y-20 justify-self-center">
     <div class="flex items-center justify-center w-full">
-        <h3 class="font-cascadia text-4xl capitalize font-bold">{title}</h3>
+        <h3 class="font-cascadia lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl capitalize font-bold">{title}</h3>
     </div>
     <slot/>
 </section>

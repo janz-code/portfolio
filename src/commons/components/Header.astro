@@ -12,10 +12,11 @@ const locale = Astro.currentLocale!;
 const data = await getHeaderData(locale);
 ---
 <header class="fixed top-1 w-full justify-self-center h-fit font-cascadia grid grid-cols-3 items-center gap-5
-    font-light px-10 py-3 bg-light-bg/70 z-40 backdrop-blur-lg">
+    font-light px-5 xl:px-10 py-3 bg-light-bg/70 z-40 backdrop-blur-lg">
     <nav class="flex items-center-safe gap-x-2">
         {data.nav.map((item,index)=>(
-            <a class={`px-5 py-1 transition-colors duration-500 rounded-full hover:bg-light-surface capitalize text-sm
+            <a class={`px-3 xl:px-5 py-1 transition-colors duration-500 rounded-lg xl:rounded-full 
+                hover:bg-light-surface capitalize xl:text-sm text-xs
                ${index===id && 'bg-light-surface'} text-center focus:outline-0`}
                href={item.path} target="_self" data-astro-prefetch>
                 {item.label}

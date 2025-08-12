@@ -9,14 +9,14 @@ const title = locale === "en" ? "Skills" : "Habilidades";
 const skills = await getSkills(locale);
 ---
 <SectionLayout title={title}>
-    <ul class="grid grid-cols-5 list-none gap-5">
-        {skills.sort((a,b)=> b.skills.length-a.skills.length).map(category => (
+    <ul class="grid 3xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 list-none gap-3 2xl:gap-5">
+        {skills.sort((a,b)=> a.skills.length-b.skills.length).map(category => (
             <CategoryContainer client:load category={category} locale={locale} items={category.skills.length}>
                 {category.skills.sort((a,b)=> b.proficiency-a.proficiency).map(skill => (
                         <li class="grid grid-cols-6 items-start">
                             <div class="p-1 rounded-md w-fit justify-self-start border-[1px]"
                                  style={{backgroundColor: skill.color.surface, borderColor: skill.color.border}}>
-                                <figure class="w-5 h-5"
+                                <figure class="2xl:w-5 2xl:h-5 w-4 h-4"
                                         style={{color: skill.color.focus}}>
                                     <skill.icon/>
                                 </figure>

@@ -5,8 +5,8 @@ interface Props{
 }
 const {content} = Astro.props;
 ---
-<div class="flex items-center gap-x-2">
-    <figure class="w-5 h-5 text-text-muted">
+<div class="flex items-center gap-x-2 2xl:text-base lg:text-sm flex-nowrap">
+    <figure class="xl:w-5 xl:h-5 w-4 h-4 text-text-muted">
         <slot/>
     </figure>
     <h4>{content}</h4>
