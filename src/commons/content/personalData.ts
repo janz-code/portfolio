@@ -13,7 +13,7 @@ const getPersonalData = async (locale: string) => {
         wpm: 64,
         time: 15,
         precision: 97,
-        locale: "en-US"
+        locale: "EN"
     }
 }
 export default getPersonalData;

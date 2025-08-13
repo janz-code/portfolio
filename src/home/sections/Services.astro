@@ -9,14 +9,14 @@ const title = locale === "en" ? "Services" : "Servicios"
 <SectionLayout title={title}>
     <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2">
         {data.map((item, index) => (
-            <li class="border-[3px] border-light-border rounded-lg py-1.5 px-2 bg-light-surface flex flex-col gap-y-2">
+            <li class="border-[3px] border-light-border rounded-lg py-1.5 px-2 xl:p-3 bg-light-surface flex flex-col gap-y-2">
                 <div class="flex items-center gap-1">
-                    <figure class="w-5 h-5 text-text">
+                    <figure class="w-5 h-5 md:w-6 md:h-6 text-text">
                         <item.icon />
                     </figure>
-                    <h4 class="capitalize font-semibold font-cascadia text-sm">{item.label}</h4>
+                    <h4 class="capitalize font-semibold font-cascadia text-sm md:text-base xl:text-lg 2xl:text-xl">{item.label}</h4>
                 </div>
-                <p class="text-xs font-light font-sweet">{item.description}</p>
+                <p class="text-xs md:text-sm xl:text-base font-light font-sweet">{item.description}</p>
             </li>
         ))}
     </ul>
