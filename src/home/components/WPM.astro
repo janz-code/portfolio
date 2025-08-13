@@ -1,5 +1,4 @@
 ---
-import personalData from "../../commons/content/personalData";
 interface Props{
     typing:string
     wpmString: string
@@ -13,29 +12,30 @@ import Clock from "../../commons/assets/icons/system/Clock.astro";
 import LanguageIcon from "../../commons/assets/icons/LanguageIcon.astro";
 import PrecisionIcon from "../../commons/assets/icons/system/PrecisionIcon.astro";
 ---
-<div class="bg-light-surface rounded-2xl h-full p-3 flex flex-col justify-between">
-    <figure class="bg-light-bg rounded-xl px-3 py-0.5 w-fit font-cascadia font-light text-sm">
+<div class="bg-light-surface rounded-2xl h-full p-1.5 md:p-3 flex flex-col justify-between">
+    <figure class="bg-light-bg rounded-xl px-3 py-0.5 w-fit font-cascadia font-light text-xs md:text-sm">
         {typing}
     </figure>
-    <div class="w-fit text-7xl font-cascadia relative flex items-center gap-1">
+    <div class="w-full text-5xl md:text-7xl font-cascadia relative flex items-center gap-1 justify-center">
         {wpm}
-        <p class="font-medium text-4xl">{wpmString}</p>
+        <p class="font-medium text-3xl md:text-4xl">{wpmString}</p>
     </div>
-    <div class="flex items-center justify-between gap-5 font-light font-sweet bg-light-bg py-2 px-2 rounded-xl text-base">
+    <div class="flex items-center justify-around sm:justify-between gap-2 md:gap-5 font-light font-sweet bg-light-bg p-1
+        md:p-2 rounded-xl md:text-base text-sm">
         <div class="flex items-center gap-1">
-            <figure class="w-6 h-6">
+            <figure class="md:w-6 md:h-6 w-4 h-4">
                 <Clock/>
             </figure>
             <span>{time}s</span>
         </div>
         <div class="flex items-center gap-1">
-            <figure class="w-6 h-6">
+            <figure class="md:w-6 md:h-6 w-4 h-4">
                 <PrecisionIcon/>
             </figure>
             <span>{precision}%</span>
         </div>
         <div class="flex items-center gap-1">
-            <figure class="w-5 h-5">
+            <figure class="md:w-5 md:h-5 w-4 h-4">
                 <LanguageIcon/>
             </figure>
             <span>{locale}</span>

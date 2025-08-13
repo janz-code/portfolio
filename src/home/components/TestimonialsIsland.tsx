@@ -9,7 +9,8 @@ export default function TestimonialsIsland({data}: Props) {
         <>
             <ul className="w-full flex items-center justify-center relative h-full">
                 {data.map((item,index) => (
-                    <li key={index} className={`w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-lg bg-light-surface
+                    <li key={index} className={`w-[80px] h-[80px] sm:w-[120px] sm:h-[120px] lg:w-[150px] lg:h-[150px]
+                        rounded-lg bg-light-surface
                         overflow-hidden absolute transition-all duration-500 border-2 border-light-shadow`}
                         style={{zIndex: index===active ? data.length : index,
                             rotate: `${index===active? 0 : 16*(index+1)}deg`}}>
@@ -21,16 +22,16 @@ export default function TestimonialsIsland({data}: Props) {
                     </li>
                 ))}
             </ul>
-            <div className="flex flex-col gap-y-2 md:col-span-2 lg:col-span-1">
-                <div className="font-cascadia place-self-end pr-5">
+            <div className="flex flex-col gap-y-2 col-span-2 lg:col-span-1">
+                <div className="font-cascadia place-self-end pr-5 sm:text-base text-sm">
                     {active+1} / {data.length}
                 </div>
                 <div className="w-full h-fit py-5 px-4 font-sweet bg-light-surface rounded-2xl flex flex-col gap-y-5">
                     <div>
-                        <h3 className="font-bold font-cascadia text-lg xl:text-2xl">{data[active].title}</h3>
-                        <h4 className="font-semibold text-sm xl:text-base font-cascadia">{data[active].subtitle}</h4>
+                        <h3 className="font-bold font-cascadia text-base sm:text-lg xl:text-2xl">{data[active].title}</h3>
+                        <h4 className="font-semibold text-xs sm:text-sm xl:text-base font-cascadia">{data[active].subtitle}</h4>
                     </div>
-                    <p className="font-poppins font-light text-sm xl:text-base">{data[active].description}</p>
+                    <p className="font-poppins font-light text-xs sm:text-sm xl:text-base">{data[active].description}</p>
                 </div>
                 <div className="flex items-center gap-x-4 place-self-end">
                     <Button handler={()=> setActive(prev => active === 0 ? data.length-1 : prev-1)}>
@@ -47,8 +48,8 @@ export default function TestimonialsIsland({data}: Props) {
 
 const Button = ({handler, children}:{handler: ()=> void, children: ReactNode}) => {
     return(
-        <button className="focus:outline-none w-8 h-8 flex items-center justify-center bg-light-surface rounded-full
-            text-lg cursor-pointer"
+        <button className="focus:outline-none sm:w-8 sm:h-8 w-6 h-6 flex items-center justify-center
+            bg-light-surface rounded-full text-lg cursor-pointer"
             onClick={handler}>
             {children}
         </button>

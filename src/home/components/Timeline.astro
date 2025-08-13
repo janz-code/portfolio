@@ -22,9 +22,9 @@ const locale = Astro.currentLocale!;
             <li class="relative flex gap-x-4 items-start group cursor-pointer">
                 <figure class="mt-1 min-w-5 w-5 h-5 rounded-full border-[1px] group-hover:bg-light-hover-shadow
                     group-hover:border-light-hover-shadow transition-all duration-500 bg-light-bg
-                    border-light-shadow z-10"></figure>
+                    border-light-shadow z-10 hidden sm:flex"></figure>
                 <div class="absolute top-5 left-[9px] w-[1px] h-full bg-light-shadow
-                        group-hover:bg-light-hover-shadow z-0"></div>
+                        group-hover:bg-light-hover-shadow z-0 hidden sm:flex"></div>
                 <div class="flex flex-col gap-y-1">
                     <div class="flex items-center gap-x-1 xl:gap-x-2 font-cascadia text-sm xl:text-base
                         2xl:text-xl capitalize font-semibold overflow-hidden">
@@ -33,9 +33,8 @@ const locale = Astro.currentLocale!;
                                     <Book/>
                                 </figure>
                         )}
-                        <p class="text-nowrap text-ellipsis">
-                            <span>{item.name}</span>
-                            |
+                        <p class="text-wrap text-ellipsis">
+                            <span>{item.name},</span>
                             <span>{item.institution}</span>
                         </p>
                     </div>
@@ -43,12 +42,10 @@ const locale = Astro.currentLocale!;
                         <TimelineHeaderItem content={item.location}>
                             <LanguageIcon/>
                         </TimelineHeaderItem>
-                        <figure class="h-4 w-[2px] bg-light-shadow"/>
                         <TimelineHeaderItem
                                 content={i18nDate(locale, item.startDate, item.endDate)}>
                             <Callendar/>
                         </TimelineHeaderItem>
-                        <figure class="h-4 w-[2px] bg-light-shadow"/>
                         <TimelineHeaderItem
                                 content={item.type}>
                             <Storm/>
@@ -56,7 +53,7 @@ const locale = Astro.currentLocale!;
                     </div>
                     {item.achievements && (
                         <div class="border-[1px] py-2 rounded-2xl border-light-shadow mt-2
-                            group-hover:border-light-hover-shadow duration-500 transition-all pl-5">
+                            group-hover:border-light-hover-shadow duration-500 transition-all sm:pl-5 pl-5">
                             <div class="flex items-center">
                                 <figure class="2xl:w-10 2xl:h-10 w-7 h-7"><Achieve/></figure>
                                 <h3 class="font-cascadia text-base 2xl:text-xl">Achievement</h3>
@@ -65,7 +62,7 @@ const locale = Astro.currentLocale!;
                                 <ul class="flex flex-col pl-9 pr-1 2xl:pl-10">
                                     {item.achievements.map(item => (
                                         <li class="font-poppins font-light flex items-start gap-x-4 relative
-                                            text-sm 2xl:text-base">
+                                            text-xs md:text-sm 2xl:text-base">
                                             <figure class="min-w-1.5 w-1.5 h-1.5 rounded-full bg-light-shadow absolute
                                                 group-hover:bg-light-hover-shadow transition-all duration-500
                                                 top-2 -left-6"/>

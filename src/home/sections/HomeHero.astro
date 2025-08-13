@@ -8,20 +8,23 @@ const system = await getHomeHero(locale);
 const title = locale === "en" ? '"Push forward, progress will follow you"' : '"Sigue adelante, el progreso te seguirá"'
 const personal = await getPersonalData(locale);
 ---
-<div class="w-[98%] lg:w-[95%] 2xl:w-[97%] h-full flex flex-col 3xl:pt-10 3xl:gap-10
-    justify-self-center justify-between">
-    <div class="h-full lg:h-2/5 lg:min-h-2/5 flex items-center justify-center
-        text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl
+<div class="w-[98%] lg:w-[95%] 2xl:w-[97%] h-full flex-col 3xl:pt-10 3xl:gap-10
+    justify-self-center justify-between hidden md:flex">
+    <div class="md:h-full lg:h-2/5 lg:min-h-2/5 flex items-center justify-center
+        sm:text-3xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl
         3xl:text-7xl font-cascadia">
         <h2 class="first-letter:italic first-letter:font-bold text-center">
             {title}
         </h2>
     </div>
-    <div class="w-full h-fit lg:h-3/5 rounded-2xl relative grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
+    <div class="w-full h-fit lg:h-3/5 rounded-2xl relative grid grid-cols-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
         3xl:grid-cols-5 bg-light-surface p-4 gap-10 lg:gap-0">
-        <LeftHero/>
+        <div class="md:hidden"/>
+        <div class="col-span-3 md:col-span-1">
+            <LeftHero/>
+        </div>
         <div class="hidden lg:flex xl:col-span-2 3xl:col-span-3"/>
-        <div class="grid items-end w-full">
+        <div class="hidden md:grid items-end w-full">
             <HeroServices/>
         </div>
     </div>

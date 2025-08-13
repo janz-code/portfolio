@@ -15,8 +15,8 @@ const system = await getHomeHero(locale);
 const personalData = await getPersonalData(locale);
 const social = await getSocialMedia(locale);
 ---
-<div class="flex flex-col gap-y-4 w-full self-end items-center">
-    <div class="flex flex-col gap-y-6 bg-light-surface rounded-2xl w-full">
+<div class="flex flex-col gap-y-2 md:gap-y-4 w-full self-end items-center">
+    <div class="flex flex-col gap-y-2 md:gap-y-6 bg-light-surface rounded-2xl w-full">
         <div class="flex flex-col items-center">
             <div class="grid grid-cols-3 items-start gap-5 bg-light-bg py-4 rounded-2xl w-full xl:px-2 2xl:px-5">
                 <HeroTags name={tags.time} layer={1}>
@@ -35,9 +35,10 @@ const social = await getSocialMedia(locale);
                 <Image src={smallProfile} width={80} height={80} alt="small real life profile"
                        class="rounded-full bg-light-bg p-0.5" />
             </div>
-            <div class="flex flex-col items-center-safe xl:pb-4 pt-10 pb-3 font-sweet gap-y-3 px-2 w-full">
+            <div class="flex flex-col items-center-safe xl:pb-4 pt-8 md:pt-10 pb-3 font-sweet gap-y-1 md:gap-y-3
+                px-2 w-full">
                 <div class="w-full flex flex-col items-center">
-                    <h3 class="font-bold font-cascadia capitalize xl:text-3xl lg:text-xl">{personalData.name}</h3>
+                    <h3 class="font-bold font-cascadia capitalize text-xl xl:text-3xl lg:text-xl">{personalData.name}</h3>
                 </div>
                 <ul class="flex flex-col items-start w-full xl:px-5 px-3">
                     <PersonalInfoLine field={system.location} value={`${personalData.city}, ${personalData.country}`} />

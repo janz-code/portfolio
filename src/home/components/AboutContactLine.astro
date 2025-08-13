@@ -9,11 +9,13 @@ const locale = Astro.currentLocale!;
 ---
 <>
     {path?
-        (<a href={path} target="_blank" class="group flex items-center gap-x-2 flex-wrap">
+        (<a href={path} target="_blank" class="group flex items-center gap-x-2 flex-wrap
+             text-xs md:text-base">
             <p class="capitalize font-cascadia font-semibold">{label}:</p>
             <p class="font-light font-sweet group-hover:underline">{value}</p>
         </a>):
-        (<div class="flex items-center gap-x-2 flex-wrap">
+        (<div class="flex items-center gap-x-2 flex-wrap
+            text-xs md:text-base">
             <p class="capitalize font-cascadia font-semibold">{label}:</p>
             <p class="font-light font-sweet">{value}</p>
         </div>)

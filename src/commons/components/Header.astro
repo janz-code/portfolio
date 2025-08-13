@@ -13,7 +13,8 @@ const data = await getHeaderData(locale);
 ---
 <header class="fixed top-1 w-full justify-self-center h-fit font-cascadia grid grid-cols-3 items-center gap-5
     font-light px-5 xl:px-10 py-3 bg-light-bg/70 z-40 backdrop-blur-lg">
-    <nav class="flex items-center-safe gap-x-2">
+    <div class="flex md:hidden"/>
+    <nav class="items-center-safe gap-x-2 hidden md:flex">
         {data.nav.map((item,index)=>(
             <a class={`px-3 xl:px-5 py-1 transition-colors duration-500 rounded-lg xl:rounded-full 
                 hover:bg-light-surface capitalize xl:text-sm text-xs
@@ -24,7 +25,7 @@ const data = await getHeaderData(locale);
         ))}
     </nav>
     <h4 class="uppercase select-none font-bold text-2xl font-cascadia text-center">{data.title}</h4>
-    <div class="h-full w-fit justify-self-end flex items-center gap-2">
+    <div class="h-full w-fit justify-self-end hidden md:flex items-center gap-2">
         <ThemeSelector client:load>
             <figure class="hidden dark:flex">
                 <SunIcon/>
