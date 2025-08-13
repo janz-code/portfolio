@@ -37,7 +37,7 @@ const title = isDefault ? "contact" : "contacto"
                     </figure>
                     <h3 class="text-lg 2xl:text-2xl font-jetbrains font-semibold">{formTitle}</h3>
                 </div>
-                <span class="w-full font-poppins text-sm 2xl:text-base font-light">{formSubtitle}</span>
+                <p class="w-full font-poppins text-xs sm:text-sm 2xl:text-base font-light">{formSubtitle}</p>
             </div>
             <ContactForm client:only isDefault={isDefault}>
                 <SendIcon/>
@@ -54,7 +54,7 @@ const title = isDefault ? "contact" : "contacto"
                     </div>
                     <div>
                         <h3 class="font-semibold text-xl 2xl:text-2xl font-jetbrains">{socialTitle}</h3>
-                        <h4 class="font-light 2xl:text-base text-sm">{socialSubtitle}</h4>
+                        <p class="font-light 2xl:text-base sm:text-sm text-xs">{socialSubtitle}</p>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ const title = isDefault ? "contact" : "contacto"
                     </div>
                     <div>
                         <h3 class="font-semibold 2xl:text-2xl text-xl font-jetbrains">{contactInfoTitle}</h3>
-                        <h4 class="font-light 2xl:text-base text-sm">{contactInfoSubtitle}</h4>
+                        <p class="font-light 2xl:text-base sm:text-sm text-xs">{contactInfoSubtitle}</p>
                     </div>
                 </div>
                 <div class="2xl:pl-16 pl-14 flex flex-col gap-y-3">
