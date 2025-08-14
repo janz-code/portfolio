@@ -49,8 +49,8 @@ const data = await Promise.all(
                         ${project.data.status === "in-progress" ? "bg-amber-500" : ""}
                         ${project.data.status === "done" ? "bg-emerald-500":""}
                         ${project.data.status === "planning" ? "bg-sky-500" : ""}
-                        ${project.data.status === "abandoned" ? "bg-rose-500" : ""}
-                        ${project.data.status === "deleted" ? "bg-red-500" : ""}
+                        ${project.data.status === "abandoned" ? "bg-rose-400" : ""}
+                        ${project.data.status === "deleted" ? "bg-red-300" : ""}
                         ${project.data.status === "featured" ? "bg-indigo-500 text-white" : ""}`}
             >
               {project.data.status}
@@ -96,6 +96,12 @@ const data = await Promise.all(
                   </figure>
                 </a>
               )}
+                {!project.data.repo && !project.data.live && (
+                    <p class="font-semibold capitalize text-center w-full text-text hover:cursor-not-allowed
+                        select-none bg-light-shadow/40 px-4 py-0.5 rounded-lg">
+                        {locale==="en" ? "confidential": "confidencial"}
+                    </p>
+                )}
             </div>
           </div>
         </div>
